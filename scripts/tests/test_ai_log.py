@@ -32,11 +32,13 @@ class EvidenceTests(unittest.TestCase):
                          'headers': {'Cookie': 'session=secret'}}
         with patch.dict(os.environ, {'AI_LOG_REDACT_VALUES': '["custom-secret"]'}):
             logger.append(self.root, event)
-        for path in (self.root / 'documentation').glob('*.*'):
+        # Check both published outputs explicitly; directory order and the empty lock file are irrelevant.
+        for name in ['ai-interactions.jsonl', 'AI-INTERACTION-LOG.md']:
+            path = self.root / 'documentation' / name
             public = path.read_text()
             for secret in ['hidden', 'abc.def', 'badvalue', 'alsoBad', 'ChangeMe123!', 'ghp_abcdefghijklmnop', 'custom-secret', 'session=secret']:
                 self.assertNotIn(secret, public)
-        self.assertIn('[REDACTED]', public)
+            self.assertIn('[REDACTED]', public)
 
     def test_retry_does_not_duplicate_or_change_bytes(self):
         logger.append(self.root, self.event())

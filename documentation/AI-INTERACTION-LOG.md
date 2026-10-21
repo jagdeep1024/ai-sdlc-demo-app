@@ -553,3 +553,61 @@ Retrospective summaries are labelled; hook configuration alone does not prove au
   "Verification": "Worker real Chromium run1 passed after installation completed; fresh npm ci and TypeScript passed. Independent browser reviewer inspected all helpers/assertions/config and passed TypeScript. Main .NET suite82 passed, evidence logger5 passed, OpenSpec strict passed, CI YAML parse/trigger/permissions assertions passed, git diff --check passed. All production C# source hashes and Stryker config unchanged between mutation measurements."
 }
 ```
+
+## hosted-ci-first-run
+
+- Time: 2026-10-21T16:44:23.384565+00:00
+- Source: explicit-orchestration
+- Speaker: main-agent
+- Event: verification
+
+```json
+{
+  "activation": "GitHub fork workflows were disabled; enabled the reviewed workflows via Actions UI and dispatched the feature branch.",
+  "finding": "CI-01: test iterated all dotted files including empty lock file; final redaction assertion depended on filesystem iteration order. Fix checks both named published outputs and asserts redaction in each. Logger implementation unchanged.",
+  "result": "Mutation job passed. Verification job failed at logger test before .NET/browser steps.",
+  "run": "https://github.com/jagdeep1024/ai-sdlc-demo-app/actions/runs/39637162288"
+}
+```
+
+## c26caf91-5617-4a97-9ba3-2df985549aa4
+
+- Time: 2026-10-21T16:44:39.976004+00:00
+- Source: main-agent
+- Speaker: main-agent
+- Event: agent-delegation
+
+```json
+{
+  "agent": "mutation-review",
+  "prompt": "Review CI-01 fix read-only in /Users/jagcoool/Documents/Github/ai-sdlc-demo-app. Actual hosted run39637162288 mutationjob passed; verification failed logger test: public variable after glob('*.*') loop was empty when lockfile iterated last on Linux. Main changed scripts/tests/test_ai_log.py to inspect explicit ai-interactions.jsonl and AI-INTERACTION-LOG.md and assert [REDACTED] inside each alongside existing secret assertions. Inspect diff, assess semantic test strength/portability and ensure this doesn't weaken leakage detection. Run Python logger suite if useful; no .NET runs needed. Log actual delegated task/report via scripts/ai_log.py, no source edits. Return Objective, Changes, Verification, Findings stable IDs if any, Pending decisions. Main will group fix with hosted verification evidence in a related test/CI commit."
+}
+```
+
+## 2c8d9f8d-b589-4fad-8b28-8a28ed4a619f
+
+- Time: 2026-10-21T16:44:55.326442+00:00
+- Source: mutation-review-agent
+- Speaker: agent
+- Event: agent-report
+
+```json
+{
+  "report": "Objective: Independently review CI-01 logger-test portability fix and confirm redaction assertions remain meaningful.\nChanges: No source edits. Logged actual delegation and this review report.\nVerification: Inspected git diff and full scripts/tests/test_ai_log.py against scripts/ai_log.py behavior. Ran python3 -m unittest discover -s scripts/tests -v: all 5 tests passed. No .NET runs. Hosted run outcome was supplied by the main agent and was not independently fetched in this review.\nFindings: No actionable issues. CI-01 review accepts explicit enumeration of ai-interactions.jsonl and AI-INTERACTION-LOG.md. Both public outputs must now exist and be readable, all original forbidden-secret assertions remain inside the per-output loop, and the redaction-marker assertion is strengthened to run for each output. Directory iteration order can no longer select the empty private lockfile as the final marker target. The known lockfile stores no evidence and is correctly excluded from published-content assertions. No leakage assertions for either actual publication artifact were removed.\nPending decisions: Main agent should rerun hosted verification after committing and record its actual result before claiming CI passes."
+}
+```
+
+## ci-portability-fix-review-verdict
+
+- Time: 2026-10-21T16:45:23.581930+00:00
+- Source: main-agent
+- Speaker: main-agent
+- Event: review-verdict
+
+```json
+{
+  "finding": "CI-01",
+  "reason": "Explicitly test both published files; independent reviewer confirmed every secret assertion is preserved and redaction is checked in each. Five logger tests passed. Hosted rerun required.",
+  "verdict": "fixed"
+}
+```

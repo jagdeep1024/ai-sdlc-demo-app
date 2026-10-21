@@ -111,3 +111,11 @@ Browser execution was not repeated during this review to avoid interfering with 
 
 
 Implementation-agent verdict: accepted the review conclusion; no changes required. This is an agent decision. Hosted CI verification remains pending.
+
+## First hosted run and portability fix
+
+[Run 39637162288](https://github.com/jagdeep1024/ai-sdlc-demo-app/actions/runs/39637162288) ran after enabling workflows on the fork. The mutation job passed. The verification job stopped at the logger test, before browser execution.
+
+**CI-01 — fixed (agent verdict):** the logger test iterated all dotted files, including its empty lockfile, and checked the final iterated file for a redaction marker. Linux directory order exposed this latent test defect. It now checks both named published outputs explicitly, retains every forbidden-secret assertion, and checks redaction in each output. Missing outputs fail directly. Independent review confirmed the assertions were strengthened and all five logger checks passed locally. The logger implementation did not change.
+
+This fix requires a new hosted run; the first failed run is retained as evidence rather than described as successful.
