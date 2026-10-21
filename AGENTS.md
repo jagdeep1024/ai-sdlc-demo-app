@@ -14,7 +14,7 @@ Invoice approval demo app: ASP.NET Core 8 Web API with a small static web UI.
 
 - Controllers live in `Controllers/`, one per resource, route `api/[controller]`. Request bodies are `record` types declared inside the controller.
 - Controllers inherit `ApiControllerBase` and use `Handle(...)` so service errors map to 404, 409 and 400.
-- Every endpoint is behind sign-in. Restrict actions with `[RequireRole("...")]`: destructive actions are Admin only, approvals are Approver or Admin.
+- Every endpoint is behind sign-in. Restrict actions with `[RequireRole("...")]`: destructive actions are Admin only, approvals are Manager or Director; Admin has no approval authority.
 - Business rules go in the Domain project, never in controllers.
 - Register services in `Program.cs`. Repositories are interfaces in Domain with an in-memory implementation in Api.
 - Every new rule or endpoint needs tests. Use `FakeInvoiceRepository` in tests.
@@ -29,10 +29,27 @@ Invoice approval demo app: ASP.NET Core 8 Web API with a small static web UI.
 
 ## Demo accounts (not real credentials)
 
-- `demo.approver` / `ChangeMe123!` (role Approver)
+- `demo.approver` / `ChangeMe123!` (role Manager after stage one)
 - `demo.admin` / `ChangeMe123!` (role Admin)
 
 ## Never
 
 - Commit real credentials, tokens or customer data.
 - Add business logic to `Program.cs` or controllers.
+
+## Assignment workflow
+
+Read `.agents/skills/assignment-evidence/SKILL.md` for assignment work.
+Use OpenSpec change `role-based-approval-limits` as the behavioral source of truth.
+Manager limit: 50,000 inclusive. Director limit: 500,000 inclusive.
+Above 500,000: Manager or Director first, then a distinct Director. Same identity never counts twice.
+Failed attempts return a clear reason and leave ALL invoice fields and repository writes unchanged.
+Session identity/role are authoritative; never accept them from an approval request body.
+Keep rules in Domain, transport/auth in Api, presentation in wwwroot.
+Implement single-approver limits with tests in one stage and commit, then dual approval in a separate prompt/stage/commit.
+Do not implement stage two until Jagdeep reviews stage one.
+Main agent coordinates; implementation agent may delegate an independent read-only test review.
+Review every generated test for a real failing scenario, not just execution coverage.
+Review findings require stable IDs, evidence, and fixed/dismissed/deferred verdicts with reasons.
+Record actual AI interactions and distinguish human instructions from delegated prompts; never fabricate human decisions.
+The workshop review prompt and final video are pending external inputs.

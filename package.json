@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "@fission-ai/openspec": "1.14.3"
+  },
+  "name": "invoice-approval-assignment-tooling",
+  "private": true,
+  "scripts": {
+    "spec:validate": "openspec validate role-based-approval-limits --strict",
+    "evidence:test": "python3 -m unittest discover -s scripts/tests",
+    "evidence:render": "python3 scripts/ai_log.py render"
+  }
+}
