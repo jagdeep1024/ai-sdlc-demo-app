@@ -2,7 +2,7 @@
 
 Baseline: seven existing xUnit tests passed before implementation.
 
-Current checkpoint: Jagdeep authorized stage two with “Okay, let's implement the next stage.” The stage-one section below records its earlier review state; that checkpoint is now cleared. Stage-two verification passed 73 cases. Stage-two human acceptance and the later workshop PR review have not yet occurred.
+Current checkpoint: Jagdeep authorized stage two with “Okay, let's implement the next stage.” The stage-one section below records its earlier review state; that checkpoint is now cleared. Stage-two verification passed 73 cases. Jagdeep subsequently authorized the browser/mutation/CI stage with “Start with the next stage, implement it.” The stage-two checkpoint is therefore cleared; the later workshop PR review has not occurred.
 
 ## Independent stage-one review
 
@@ -184,3 +184,17 @@ The main agent ran the application locally and operated Chrome through the UI (n
 - Observed and fixed anonymous Sign out visibility and stale errors after changing users. Rechecked both with current UI assets in a fresh local browser origin.
 
 Main verification: `dotnet test backend/InvoiceApp.sln --no-restore` — **73 passed, 0 failed, 0 skipped**; OpenSpec strict validation, 5 logger checks, JavaScript syntax and whitespace checks passed. The required automated Playwright scenario and mutation measurement remain later verification work.
+
+## Mutation-gap test review
+
+The separate mutation reviewer independently inspected all three new methods in `ApprovalServiceTests.MutationGaps.cs`, the baseline report, configuration, production code and API/repository entrypoints. Its original report is in the interaction log.
+
+| Method | Real defect caught |
+| --- | --- |
+| `Submit_NonDraft_ExplainsFailureAndPreservesEveryField` | All non-Draft states must explain why submission failed, preserve the entire invoice and perform no write; kills mutant 4. |
+| `Reject_NonPending_DoesNotOverwriteLifecycleDecision` | A rejection cannot overwrite Draft, Approved or Rejected state; final states are built through actual lifecycle operations; kills mutant 69. |
+| `Reject_MissingReason_ExplainsFailureAndPreservesApprovalHistory` | Null/blank rejection reason must produce a meaningful error without changing existing approval history or decision metadata; kills mutant 67. |
+
+Reviewer findings MR-01 through MR-05 were informational; no code defects or exclusions were recommended. Main-agent verdict: accept the assertion review, confirm all three predicted kills against the actual rerun, and retain defensive-state IDs 29/32/33 as disclosed undetected mutations. These are agent judgements, not a workshop PR review or human verdict.
+
+The main run after adding these tests passed **82 cases**. Actual mutation results were **89.09% before**, **94.55% after**, with identical production and configuration hashes. Full details and normalized tool reports are in MUTATION-RESULTS.md. Browser assertions and their separate independent review are recorded in BROWSER-TEST-REVIEW.md.

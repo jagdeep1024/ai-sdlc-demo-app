@@ -18,13 +18,13 @@
 
 - [x] 3.1 Add immutable history entries and shared atomic transitions; verify both first roles, second Director, duplicate, invalid-state and concurrency tests across service instances.
 - [x] 3.2 Show progress/history in UI and expose history in responses; verify API contracts and unchanged fields after all rejection paths.
-- [ ] 3.3 Review tests, commit stage two and wait for Jagdeep's actual review.
+- [x] 3.3 Review tests, commit stage two and wait for Jagdeep's actual review.
 
 ## 4. Browser and mutation evidence
 
-- [ ] 4.1 Add accessible Playwright page objects and rejected 50,000.01 Manager approval test; verify visible error and unchanged pending invoice after reload.
-- [ ] 4.2 Run Stryker 4.13.0 before/after survivor-driven test improvements using identical production code/scope; record actual counts, scores and commands as text.
-- [ ] 4.3 Extend CI for unit/API/evidence/spec/browser verification; verify workflow checks.
+- [x] 4.1 Add accessible Playwright page objects and rejected 50,000.01 Manager approval test; verify visible error and unchanged pending invoice after reload.
+- [x] 4.2 Run Stryker 4.13.0 before/after survivor-driven test improvements using identical production code/scope; record actual counts, scores and commands as text.
+- [x] 4.3 Extend CI for unit/API/evidence/spec/browser verification; verify workflow checks.
 
 ## 5. PR review and write-up
 

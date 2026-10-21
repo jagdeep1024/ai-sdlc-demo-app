@@ -1,0 +1,201 @@
+{
+  "tool": "dotnet-stryker",
+  "version": "4.13.0",
+  "base_commit": "1f457d9db420101d3e4ca46ec9ad5fa109a85e4c",
+  "production_source_unchanged": true,
+  "source_sha256": {
+    "backend/src/InvoiceApp.Api/Auth/RequireRoleAttribute.cs": "98d60f1e20f3b87fb7e019e04b82c35e7934d538e77b743d3607ee0e10e2a4e6",
+    "backend/src/InvoiceApp.Api/Auth/SessionAuthMiddleware.cs": "21358021bcba61274edc28730723d636eb09feb8387ae38fd8cd0b041c69f025",
+    "backend/src/InvoiceApp.Api/Auth/SessionStore.cs": "b08bc087374c5c42c7cae1937e247cda8ca8d5781f1d7e507ee6c37e60bc9082",
+    "backend/src/InvoiceApp.Api/Auth/UserSession.cs": "abd2c0dd1167837571d6843b3d4c85a9df57392e380798a44639bf70992899c7",
+    "backend/src/InvoiceApp.Api/Controllers/ApiControllerBase.cs": "ad7c543a2abb4ce23b3d5055b6dc0f4d917888d6d18ac6a3772374e3cbb619e6",
+    "backend/src/InvoiceApp.Api/Controllers/ApprovalsController.cs": "d84f1bd6955c723ecb8f71f34f722e2f2860bb20e13e03ed506456d083b89c11",
+    "backend/src/InvoiceApp.Api/Controllers/AuthController.cs": "a3da2eda8fc821bb18a976e2e76df7f9d0c8345d879a79ee7fa9a2758ba510e2",
+    "backend/src/InvoiceApp.Api/Controllers/InvoicesController.cs": "112679e8b02ae786f04c0a8caf5e69071f9eac636dc780030d86773ce981f96d",
+    "backend/src/InvoiceApp.Api/InMemoryInvoiceRepository.cs": "e5e0227056a4462a10de8a452d6d67d086653ce61b4070c3c688a85029ccc270",
+    "backend/src/InvoiceApp.Api/Program.cs": "7a70ac1672cd1c696aa4673b1f1b1d768ac3e11aaac4a3ad546c3d7ca58caa7b",
+    "backend/src/InvoiceApp.Domain/ApprovalEntry.cs": "b6e8ed836b865d04a5107c9b81a948f07d64760fc17702dab0b645171ea0d88a",
+    "backend/src/InvoiceApp.Domain/ApprovalRole.cs": "aa5266d604ba74eaf47a473c36d63153ccabbffb2625b1cf30c4d7248eff6d72",
+    "backend/src/InvoiceApp.Domain/ApprovalService.cs": "e5b96bde62d701461fbc7a7f856d0a934f590c5bc97d5b2b31ca7a8b52494bbb",
+    "backend/src/InvoiceApp.Domain/DiscountCalculator.cs": "a6f8923fd58f7a7406946dcc99a6b6f8959d994f959701495a1f5496b98378be",
+    "backend/src/InvoiceApp.Domain/IInvoiceRepository.cs": "5678626e0a202913983ad7c0d7a8b55be43e2c027bd4d779cbc08d576596c5e0",
+    "backend/src/InvoiceApp.Domain/Invoice.cs": "517f33b7e03d4ea9a9a0a4c914eb2057e481f4279c6db2f54d62899afbce7404",
+    "backend/src/InvoiceApp.Domain/InvoiceStatus.cs": "ae6af7548575b351c23d64e5ef874dd7735e6b76f4787f57da6de92cc2815ddf"
+  },
+  "config_sha256": "380f7afbb1d348e680d87f5838b211bb63aa3fa6ac5c4d871bc6975f00a8c16e",
+  "scope": "InvoiceApp.Domain/ApprovalService.cs, Standard mutation level, ApprovalServiceTests only",
+  "runs": {
+    "baseline": {
+      "selected_test_cases": 40,
+      "counts": {
+        "Ignored": 38,
+        "Killed": 49,
+        "Survived": 4,
+        "CompileError": 6,
+        "NoCoverage": 2
+      },
+      "scored_mutants": 55,
+      "score_percent": 89.09,
+      "remaining": [
+        {
+          "file": "backend/src/InvoiceApp.Domain/ApprovalService.cs",
+          "id": "4",
+          "status": "Survived",
+          "replacement": "$\"\"",
+          "location": {
+            "start": {
+              "line": 15,
+              "column": 17
+            },
+            "end": {
+              "line": 15,
+              "column": 90
+            }
+          }
+        },
+        {
+          "file": "backend/src/InvoiceApp.Domain/ApprovalService.cs",
+          "id": "29",
+          "status": "Survived",
+          "replacement": "invoice.Approvals.Count > 2",
+          "location": {
+            "start": {
+              "line": 38,
+              "column": 32
+            },
+            "end": {
+              "line": 38,
+              "column": 60
+            }
+          }
+        },
+        {
+          "file": "backend/src/InvoiceApp.Domain/ApprovalService.cs",
+          "id": "32",
+          "status": "NoCoverage",
+          "replacement": ";",
+          "location": {
+            "start": {
+              "line": 40,
+              "column": 17
+            },
+            "end": {
+              "line": 40,
+              "column": 96
+            }
+          }
+        },
+        {
+          "file": "backend/src/InvoiceApp.Domain/ApprovalService.cs",
+          "id": "33",
+          "status": "NoCoverage",
+          "replacement": "\"\"",
+          "location": {
+            "start": {
+              "line": 40,
+              "column": 53
+            },
+            "end": {
+              "line": 40,
+              "column": 94
+            }
+          }
+        },
+        {
+          "file": "backend/src/InvoiceApp.Domain/ApprovalService.cs",
+          "id": "67",
+          "status": "Survived",
+          "replacement": "\"\"",
+          "location": {
+            "start": {
+              "line": 66,
+              "column": 41
+            },
+            "end": {
+              "line": 66,
+              "column": 85
+            }
+          }
+        },
+        {
+          "file": "backend/src/InvoiceApp.Domain/ApprovalService.cs",
+          "id": "69",
+          "status": "Survived",
+          "replacement": ";",
+          "location": {
+            "start": {
+              "line": 70,
+              "column": 13
+            },
+            "end": {
+              "line": 70,
+              "column": 36
+            }
+          }
+        }
+      ]
+    },
+    "final": {
+      "selected_test_cases": 49,
+      "counts": {
+        "Ignored": 38,
+        "Killed": 52,
+        "CompileError": 6,
+        "Survived": 1,
+        "NoCoverage": 2
+      },
+      "scored_mutants": 55,
+      "score_percent": 94.55,
+      "remaining": [
+        {
+          "file": "backend/src/InvoiceApp.Domain/ApprovalService.cs",
+          "id": "29",
+          "status": "Survived",
+          "replacement": "invoice.Approvals.Count > 2",
+          "location": {
+            "start": {
+              "line": 38,
+              "column": 32
+            },
+            "end": {
+              "line": 38,
+              "column": 60
+            }
+          }
+        },
+        {
+          "file": "backend/src/InvoiceApp.Domain/ApprovalService.cs",
+          "id": "32",
+          "status": "NoCoverage",
+          "replacement": ";",
+          "location": {
+            "start": {
+              "line": 40,
+              "column": 17
+            },
+            "end": {
+              "line": 40,
+              "column": 96
+            }
+          }
+        },
+        {
+          "file": "backend/src/InvoiceApp.Domain/ApprovalService.cs",
+          "id": "33",
+          "status": "NoCoverage",
+          "replacement": "\"\"",
+          "location": {
+            "start": {
+              "line": 40,
+              "column": 53
+            },
+            "end": {
+              "line": 40,
+              "column": 94
+            }
+          }
+        }
+      ]
+    }
+  }
+}

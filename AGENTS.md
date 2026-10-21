@@ -25,7 +25,9 @@ Invoice approval demo app: ASP.NET Core 8 Web API with a small static web UI.
 
 - Run the app: `dotnet run --project backend/src/InvoiceApp.Api` then open http://localhost:5000
 - Run the tests: `dotnet test backend/InvoiceApp.sln`
-- Run end-to-end tests: `cd e2e && npm install && npx playwright install chromium && npm test`
+- Run end-to-end tests: `cd e2e && npm ci && npx playwright install chromium && npm run typecheck && npm test`
+
+- Run mutation testing: `dotnet tool restore` at repository root, then `cd backend/tests/InvoiceApp.Tests && dotnet stryker --skip-version-check`. Keep the recorded source and configuration unchanged for score comparisons.
 
 ## Demo accounts (not real credentials)
 

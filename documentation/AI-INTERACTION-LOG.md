@@ -423,3 +423,133 @@ Retrospective summaries are labelled; hook configuration alone does not prove au
   "Verification": "Main run: dotnet test backend/InvoiceApp.sln --no-restore:73 passed0 failed0 skipped. OpenSpec strict validation passed; logger5 passed; node --check and git diff --check passed. Live Chrome paths: Manager-first then different Director; Director-first then different Director; duplicate same Manager and same Director denied; different Manager second denied. Current UI clears prior-user errors and hides logout when anonymous."
 }
 ```
+
+## stage-three-human-authorization
+
+- Time: 2026-10-21T16:31:59.812420+00:00
+- Source: human-message
+- Speaker: Jagdeep
+- Event: instruction
+
+```json
+{
+  "prompt": "Start with the next stage, implement it.",
+  "scope": "Proceed after stage-two checkpoint: automated Playwright rejection test, honest before/after mutation measurement, and CI checks."
+}
+```
+
+## d7f81075-9b85-41e5-8d1d-c2c591fda659
+
+- Time: 2026-10-21T16:33:01.686774+00:00
+- Source: agent-delegation
+- Speaker: main-agent
+- Event: browser-ci-task
+
+```json
+{
+  "prompt": "Stage two accepted to proceed: Jagdeep's exact new instruction 'Start with the next stage, implement it.' Implement task4.1 and4.3 ONLY in /Users/jagcoool/Documents/Github/ai-sdlc-demo-app branch codex/role-based-approval-limits. Main owns mutation baseline/survivor-driven .NET tests and documentation/MUTATION-RESULTS.md; do not modify .NET production or .NET tests so Stryker comparisons remain valid. Read AGENTS, assignment-evidence skill, current OpenSpec tasks/spec. Log this actual technical task prompt labelled main-agent delegation before work. Add one meaningful Playwright end-to-end test using page objects + role/label locators: sign in demo Manager, create unique50000.01 invoice via UI, submit via UI, click Approve, assert clear Manager-limit alert, reload, confirm same invoice pending with0 history. Additionally compare whole server invoice before/after if feasible via page response observation/API read authenticated using existing UI session via response token event (no reliance on browser hidden state if avoidable). Browser path must truly act UI no mocks and independent expectation. Pin appropriate Playwright dependencies via current lockfile, install browsers if needed. Ensure webServer starts isolated app on explicit dedicated port with reuseExistingServer:false, --no-launch-profile; no reliance on user server5000 or QA5093. Keep setup reproducible Windows/Linux/mac with dotnet in PATH. Node24 available, .NET at /Users/jagcoool/.dotnet/dotnet. Run browser test and TypeScript check if worthwhile; no sprawling additional tests. Update .github/workflows/ci.yml to run unit/API+logger+OpenSpec+Playwright checks on feature branch pushes and PR main, plus workflow_dispatch. Least permissions contents:read; proper .NET8 from global.json, Node supported with OpenSpec, browser dependencies and cached npm lockfiles; upload browser report on failure/success appropriately. Need actual Actions run after main push; don't claim CI passed yet. Whether add separate mutation job wait main: main may add pinned Stryker job to your final workflow after baseline verified. Don't edit README/AGENTS/main evidence docs until tell me readiness; you may append dedicated documentation/BROWSER-TEST-REVIEW.md describing exact assertions and outcome, but no operational private notes. Main owns OpenSpec task status. Delegate independent read-only review of browser assertions/CI config using existing child; log prompt/report verdicts; do not invent a workshop review. Keep any process coordination out of submitted prompts if nonassignment. Do not commit/push/create PR. Return Objective, Changes, Verification, Findings, Pending decisions with browser run result and paths."
+}
+```
+
+## b2695a96-4e44-410e-9321-a650346f0829
+
+- Time: 2026-10-21T16:35:02.357337+00:00
+- Source: agent-delegation
+- Speaker: implementation-agent
+- Event: browser-ci-review-task
+
+```json
+{
+  "prompt": "Read-only independent browser test and CI review in /Users/jagcoool/Documents/Github/ai-sdlc-demo-app. Read AGENTS and assignment-evidence skill. Inspect e2e/pages/InvoiceAppPage.ts, e2e/tests/approval-limits.spec.ts, playwright.config.ts, tsconfig.json, package manifests/lock and .github/workflows/ci.yml. Verify one meaningful real UI Manager50000.01 rejection path: UI login/create/submit/approve, clear error, reload same pending invoice with zero approvals, full before/after server-response equality; no mocks or hidden browser state. Check accessible locators/page-object use, reliable response waits, fresh explicit5097 webServer (--no-launch-profile/reuseExistingServer:false), cross-platform dotnet PATH command, dependency pinning. CI should trigger feature pushes/main PR/manual, least permissions, SDKglobal.json/Node24/npm lock caches, unit/API/logger/OpenSpec/typecheck/Chromium and browser report upload. Main separately owns adding any mutation job; do not edit .NET or workflow. Do not edit any files or add workshop review claims. Browser locally passed1/1 after browser install; typecheck passed. Return Objective, Changes, Verification, Findings, Pending decisions with stable actionable IDs, assessment of every test assertion/helper and workflow. You may run npm run typecheck --prefix e2e or static parsing; avoid browser rerun unless needed because main mutation run active. Report concrete defects, not speculative scope expansion.",
+  "target": "/root/implementation/test_review"
+}
+```
+
+## 61b71567-c78c-44c0-898c-316abe40f695
+
+- Time: 2026-10-21T16:35:12.328031+00:00
+- Source: main-agent
+- Speaker: main-agent
+- Event: agent-delegation
+
+```json
+{
+  "agent": "mutation-review",
+  "prompt": "Read-only independent review in /Users/jagcoool/Documents/Github/ai-sdlc-demo-app. Read AGENTS.md and .agents/skills/assignment-evidence/SKILL.md. Main is implementing task4.2 Stryker before/after evidence with unchanged .NET production. Inspect baseline JSON /tmp/ai-sdlc-stryker-baseline/reports/mutation-report.json and config backend/tests/InvoiceApp.Tests/stryker-config.json, actual ApprovalService.cs and state entrypoints. Review EVERY method in new ApprovalServiceTests.MutationGaps.cs for real defect/assertion strength. Independently assess baseline Survived/NoCoverage mutants, which new tests should detect, and how to classify remaining failures to detect; distinguish unsupported seeded states from equivalent mutants and actual reachable API defects. No production code changes, no score gaming/exclusions, no private coordination notes in submission evidence. Do NOT edit files or run dotnet/build/tests while main Stryker may run. You can read .NET/API source and manifests. Log this exact assignment-relevant delegated prompt as main-agent/agent-delegation via scripts/ai_log.py; source logger appends are the sole permitted writes, also log your actual report before finishing. Return Objective, Changes, Verification, Findings (stable IDs and severity for actionable issues), Pending decisions. Main will decide fixes and record agent verdicts; no workshop PR review is claimed."
+}
+```
+
+## 27a065a2-a7b3-4136-aba4-9e27ac31c910
+
+- Time: 2026-10-21T16:35:47.366107+00:00
+- Source: mutation-review-agent
+- Speaker: agent
+- Event: agent-report
+
+```json
+{
+  "report": "Objective: Independently review the approval-service mutation baseline and every added MutationGaps test without changing production code or running .NET while mutation testing is active.\nChanges: No code changes. Appended the actual delegation and this report through the assignment logger.\nVerification: Read AGENTS.md, assignment-evidence skill, active OpenSpec behavior specification, ApprovalService.cs, all existing approval-service test partials, the new MutationGaps partial, Stryker configuration, Domain invoice/repository interfaces, fake and real repositories, invoice and approval controllers, and baseline mutation-report.json. No build, tests, or mutation execution performed by this reviewer. Baseline JSON contains 49 Killed, 4 Survived, 2 NoCoverage, 6 CompileError, and 38 Ignored mutants; the configured scope is ApprovalService.cs with ApprovalServiceTests selected.\nFindings: No actionable correctness or assertion defects found in the three added test methods. MR-01 (informational): Submit_NonDraft_ExplainsFailureAndPreservesEveryField covers PendingApproval, Approved, Rejected; asserts contextual clear reason, complete JSON equality and zero repository writes. It should kill baseline mutant 4, which replaces the submit rejection reason with an empty string. MR-02 (informational): Reject_NonPending_DoesNotOverwriteLifecycleDecision constructs Approved and Rejected via genuine lifecycle transitions and also covers Draft; records write count after setup; asserts pending-state reason, full state preservation and unchanged writes. It should kill mutant 69, which removes EnsurePending from Reject. MR-03 (informational): Reject_MissingReason_ExplainsFailureAndPreservesApprovalHistory checks null, empty and whitespace after a real high-value first approval; asserts the clear reason, complete history/state preservation and no additional writes. It should kill mutant 67, which empties the missing-reason error text. MR-04 (informational): Remaining baseline IDs 29 (approval count >=2 becomes >2), 32 (remove two-approval throw), and 33 (empty its message) concern a defensive guard unreachable through current valid API transitions: a second approval sets Approved atomically and EnsurePending rejects subsequent calls before this guard. No API accepts Status/history and seeded production invoices contain no such inconsistent state. They are not globally equivalent mutants: public mutable Invoice plus repository Add/Transition can represent PendingApproval with two recorded approvals, where the mutations alter behavior. Classify as defensive inconsistent-state survivors/no coverage, retained in the score, rather than proven equivalent or exploitable API defects. A synthetic seed could test the defense, but must be labelled as defensive corrupted-state testing, not ordinary workflow evidence. MR-05 (informational): If only these three meaningful baseline gaps are closed and no other statuses change, expected score is 52/55=94.55% versus 49/55=89.09%; actual rerun output must be used as evidence. Compile errors and out-of-scope Ignored entries should remain separately visible; do not change mutation scope to inflate the result.\nPending decisions: Main agent determines evidence wording and verifies the actual after-run result. No production fixes or scope exclusions recommended. This is a mutation/test evidence review, not the workshop PR review."
+}
+```
+
+## 1d2520b2-db02-4e01-b27c-18cc4998982f
+
+- Time: 2026-10-21T16:36:01.051328+00:00
+- Source: agent-review
+- Speaker: test-review-subagent
+- Event: browser-ci-review
+
+```json
+{
+  "agent": "/root/implementation/test_review",
+  "report": "Objective\n\nIndependently review the submitted browser-test path and CI configuration without changing files or rerunning Chromium.\n\nChanges\n\nNone.\n\nVerification\n\nRead the page object, browser test, Playwright/TypeScript configuration, package manifest and lockfile, CI workflow, root tooling configuration, and UI handlers.\n\nRan \u0060npm run typecheck --prefix e2e\u0060: **passed**.\n\nHelper and assertion review:\n\n| Helper / assertion | Assessment |\n|---|---|\n| \u0060signInAsManager\u0060 | Uses real UI credentials, labels, and button; verifies authenticated app and Manager identity. |\n| \u0060createInvoice\u0060 | Creates through UI; response waiter registered before clicking; verifies POST endpoint, HTTP 201, and matching invoice row. |\n| \u0060submitInvoice\u0060 | Submits through accessible invoice-specific button; waits for exact POST route, verifies HTTP 200 and visible pending state. |\n| \u0060openApprovals\u0060 | Uses the named accessible tab. |\n| \u0060approveInvoice\u0060 | Clicks actual invoice-specific approval control; pre-registers exact POST response waiter. |\n| \u0060decisionAlert\u0060 | Scopes the alert to the Approvals tab panel. |\n| \u0060invoiceRow\u0060 | Uses accessible row/cell locators and exact invoice ID, avoiding seed ordering or customer-name ambiguity. |\n| \u0060reloadAndReadInvoice\u0060 | Observes the UI’s actual authenticated GET after reload; checks HTTP 200, same invoice presence, and visible row. No browser-storage inspection or API shortcut. |\n| Unique customer UUID | Prevents accidental matching of unrelated test data. |\n| Initial snapshot assertions | Establish amount \u006050000.01\u0060, pending status, empty history, unset decision metadata, and exact created identity/customer. |\n| HTTP 409 assertion | Catches accidental success or incorrect rejection mapping. |\n| Exact visible error assertion | Confirms the UI displays the specific Manager-limit reason. |\n| Full \u0060after.toEqual(before)\u0060 | Protects every server-returned field, including creation time, history, and decision metadata. |\n| Pending cell after reload | Independently verifies visible persisted lifecycle state. |\n| \u00600 of 1 approvals recorded\u0060 | Verifies visible zero-history progress after rejection and reload. |\n| Approval button remains visible | Confirms the same invoice remains available in pending approvals. |\n\nThe test performs real UI login, creation, submission, and approval. It uses no mocks, direct state injection, hidden browser storage, or API-created test invoices.\n\nConfiguration assessment:\n\n- Fresh server at explicit \u0060127.0.0.1:5097\u0060; \u0060--no-launch-profile\u0060 avoids launch-profile port overrides.\n- \u0060reuseExistingServer: false\u0060 prevents testing a stale instance.\n- Plain \u0060dotnet\u0060 command uses PATH without machine-specific executable paths.\n- Single Chromium worker, CI retry, failure traces/screenshots, and HTML report configured.\n- Strict TypeScript includes config, page objects, and tests.\n- Exact direct dependency versions agree with the committed lockfile.\n\nCI assessment:\n\n- Triggers on feature/main pushes, PRs targeting main, and manual dispatch.\n- Read-only repository permissions.\n- Uses \u0060global.json\u0060 for .NET SDK and Node 24 with both npm lockfiles cached.\n- Runs reproducible installs, strict OpenSpec validation, evidence-logger tests, domain/API tests, TypeScript checking, Chromium installation, and browser tests.\n- Uploads browser report and failure diagnostics after successful or failed noncancelled runs.\n- Mutation-job additions remain separately owned by the main agent.\n\nFindings\n\n**No actionable browser-test or reviewed CI defects found.** No new finding IDs required.\n\nPending decisions\n\nBrowser execution was not repeated during this review to avoid interfering with the active mutation run. Its reported prior 1/1 result is implementation evidence, not a new execution by this reviewer. Remote GitHub Actions execution remains to be verified after pushing.\n"
+}
+```
+
+## 0bf39858-a8b5-4636-bae0-7d0169475cf1
+
+- Time: 2026-10-21T16:36:01.116126+00:00
+- Source: implementation-agent
+- Speaker: implementation-agent
+- Event: browser-ci-verdict
+
+```json
+{
+  "reason": "Independent reviewer inspected every helper and assertion plus configuration; no actionable defects. Typecheck passed, real browser execution passed1/1 after installation. Hosted CI remains pending.",
+  "verdict": "accepted-no-findings"
+}
+```
+
+## mutation-baseline-and-final
+
+- Time: 2026-10-21T16:40:07.874085+00:00
+- Source: explicit-orchestration
+- Speaker: main-agent
+- Event: verification
+
+```json
+{
+  "Changes": "Added three independently reviewed parameterized test methods for meaningful errors and invalid rejection lifecycle states. No production C# changes or mutation setting changes.",
+  "Findings": "Actual IDs4,67,69 now Killed. IDs29,32,33 remain undetected defensive inconsistent-state cases, not globally equivalent mutants. Independent reviewer MR01-05 confirmed test strength and reachability caveat.",
+  "Objective": "Measure approval-service mutation coverage before and after genuine test improvements.",
+  "Pending decisions": "Hosted CI execution after push; workshop review prompt and recorded video remain external inputs.",
+  "Verification": "Stryker4.13.0 baseline:89.09%,49 killed4 survived2 no coverage6 compile errors38 ignored,40 selected tests. Final:94.55%,52 killed1 survived2 no coverage6 compile errors38 ignored,49 selected tests. Both99 generated/55 scored. All17 production file hashes and config hash match. Full suite82 passed."
+}
+```
+
+## stage-three-local-verification
+
+- Time: 2026-10-21T16:41:24.682353+00:00
+- Source: explicit-orchestration
+- Speaker: main-agent
+- Event: report
+
+```json
+{
+  "Changes": "One accessible Playwright rejection scenario and page object, isolated app port5097, locked browser tooling/TypeScript, CI verification and pinned Stryker jobs, mutation evidence reports and reviewed test improvements.",
+  "Findings": "Initial browser launch overlapped Chromium download and failed missing executable; subsequent completed-install run passed. Mutation score89.09 to94.55 with three actual additional kills; remaining defensive-state gaps retained. No independent correctness blockers reported.",
+  "Objective": "Verify rejected approval through a real browser and automate repeatable checks.",
+  "Pending decisions": "Push this verification commit and check actual hosted jobs; workshop review and final video remain pending later deliverables.",
+  "Verification": "Worker real Chromium run1 passed after installation completed; fresh npm ci and TypeScript passed. Independent browser reviewer inspected all helpers/assertions/config and passed TypeScript. Main .NET suite82 passed, evidence logger5 passed, OpenSpec strict passed, CI YAML parse/trigger/permissions assertions passed, git diff --check passed. All production C# source hashes and Stryker config unchanged between mutation measurements."
+}
+```

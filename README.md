@@ -33,6 +33,28 @@ Invoices move through Draft, Pending Approval, then Approved or Rejected.
 dotnet test backend/InvoiceApp.sln
 ```
 
+Browser rejection test (fresh app instance on port 5097):
+
+```sh
+cd e2e
+npm ci
+npx playwright install chromium
+npm run typecheck
+npm test
+```
+
+Mutation testing from the repository root:
+
+```sh
+dotnet tool restore
+cd backend/tests/InvoiceApp.Tests
+dotnet stryker --skip-version-check
+```
+
+Stryker is pinned to 4.13.0 for .NET 8. Approval-service mutation coverage improved from **89.09% to 94.55%** with unchanged production code and mutation settings. See [measurement scope, counts and remaining gaps](documentation/MUTATION-RESULTS.md) and [browser-test evidence](documentation/BROWSER-TEST-REVIEW.md).
+
+GitHub Actions runs specification, logger, unit/API, TypeScript, Chromium, and mutation checks on feature-branch pushes and PRs into main. Browser and mutation reports are uploaded as run artifacts. The mutation minimum is 80%; see the [CI workflow](.github/workflows/ci.yml) for exact commands.
+
 ## Project layout
 
 ```
