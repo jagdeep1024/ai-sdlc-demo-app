@@ -4,14 +4,14 @@
 
 - [x] 1.1 Fork and clone upstream with history preserved; verify public fork metadata and unchanged main.
 - [x] 1.2 Extend AGENTS and generate OpenSpec proposal/design/spec/tasks; verify strict validation.
-- [ ] 1.3 Add structured reporting skill and logger/hooks; verify logger tests and real interaction capture, disclose hook trust state.
+- [x] 1.3 Add structured reporting skill and logger/hooks; verify logger tests and real interaction capture, disclose hook trust state.
 - [x] 1.4 Pin .NET SDK, OpenSpec and Stryker; verify upstream seven tests pass before implementation.
 
 ## 2. Single-approver limits (first implementation prompt and commit)
 
-- [ ] 2.1 Add Manager/Director role enforcement and safe high-value rejection; verify threshold, invalid-role and lifecycle tests.
-- [ ] 2.2 Use session identity/role and migrate demo users while preserving Admin rejection; verify authenticated API tests including forged body.
-- [ ] 2.3 Update README/account guidance and independently review every generated test; verify snapshot equality and zero writes after failure.
+- [x] 2.1 Add Manager/Director role enforcement and safe high-value rejection; verify threshold, invalid-role and lifecycle tests.
+- [x] 2.2 Use session identity/role and migrate demo users while preserving Admin rejection; verify authenticated API tests including forged body.
+- [x] 2.3 Update README/account guidance and independently review every generated test; verify snapshot equality and zero writes after failure.
 - [ ] 2.4 Commit stage one with passing checks, then present results and wait for Jagdeep's actual review.
 
 ## 3. Dual approval (new prompt after human checkpoint)

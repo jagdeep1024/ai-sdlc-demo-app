@@ -25,3 +25,9 @@ The logger never opens transcript paths or exports other sessions. Hook events w
 A file lock serializes append and render, append flushes are synced, and readable output is replaced atomically. Duplicate explicit event IDs are safe retries; hook IDs derive from the event identity and selected payload. The logger never silently rewrites existing source entries. A process crash after appending can leave the readable view stale; `render` recovers it. If a secret is discovered in committed evidence, stop publication and address it explicitly rather than claiming append-only integrity prevents redaction.
 
 The logger uses Python's POSIX `fcntl` on macOS/Linux. Windows users need WSL. Ignore `documentation/.ai-log.lock` and Python `__pycache__` folders; these are runtime artifacts.
+
+## Verified native smoke test
+
+On 21 October 2026, the coordinating agent reviewed these exact definitions and logger code, used the normal CLI folder trust and `/hooks` review/trust flow, and submitted a no-tools smoke prompt in a separate read-only Codex CLI session. No hook-trust bypass flags were used.
+
+The append-only source contains a matching `codex-hook` UserPromptSubmit and Stop pair for session `01a15f1b-32f8-7283-871b-8fab9f6d3178`, turn `01a15f1b-8b1f-7270-bf80-65314d8b90aa`. The response was `Hook smoke test received.` The prompt itself identifies the coordinating AI as its author. This proves prompt/completion hook delivery in that session only; native subagent event delivery and this desktop chat remain unverified. Explicit delegation capture remains necessary.
