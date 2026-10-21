@@ -11,4 +11,3 @@
 
 If `dotnet` is not on PATH: `export PATH="$HOME/.dotnet:$PATH"`.
 Restore tool dependencies with `npm ci` and `dotnet tool restore`.
-The separate planning repository and its ignored jagdeep folder were not imported.

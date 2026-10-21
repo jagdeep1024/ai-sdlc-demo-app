@@ -14,7 +14,7 @@ Render again with `python3 scripts/ai_log.py render`. Run logger checks with `py
 
 Review both the definitions and Python script. Project-local `.codex` configuration must be trusted; use Codex `/hooks` to review and trust the exact definitions. Changed definitions require renewed trust. Open the assignment repository as the working project and start a session that loads its project hooks. Do not bypass trust. Confirm a real prompt and its completion produce matching `codex-hook` source records before claiming automatic capture. Directly invoking the handler with test input checks its contract, not runtime activation.
 
-This desktop conversation began outside the fork and predates these files. Hook registration, trust, and delivery in this already-running conversation have not been verified. Its actual coordination is recorded through explicit CLI calls. No claim of complete automatic historical capture is made. The configuration supports future project sessions once loaded and trusted.
+This desktop session predates these hook definitions. Hook registration, trust, and delivery in this already-running conversation have not been verified. Its actual coordination is recorded through explicit CLI calls. No claim of complete automatic historical capture is made. The configuration supports future project sessions once loaded and trusted.
 
 `SubagentStart` provides identifiers and type but does not include the delegated prompt. Record delegated prompts explicitly through the CLI. Hook outputs include only the latest assistant message, not every intermediate tool call or response. `UserPromptSubmit` is labelled `prompt-submitter`, not automatically asserted to be a human. Use explicit source/speaker metadata for human instructions versus orchestration. Specialized tool paths may not emit hooks. Before submission, reconcile recorded milestones against the actual session and identify any gaps.
 
@@ -31,3 +31,7 @@ The logger uses Python's POSIX `fcntl` on macOS/Linux. Windows users need WSL. I
 On 21 October 2026, the coordinating agent reviewed these exact definitions and logger code, used the normal CLI folder trust and `/hooks` review/trust flow, and submitted a no-tools smoke prompt in a separate read-only Codex CLI session. No hook-trust bypass flags were used.
 
 The append-only source contains a matching `codex-hook` UserPromptSubmit and Stop pair for session `01a15f1b-32f8-7283-871b-8fab9f6d3178`, turn `01a15f1b-8b1f-7270-bf80-65314d8b90aa`. The response was `Hook smoke test received.` The prompt itself identifies the coordinating AI as its author. This proves prompt/completion hook delivery in that session only; native subagent event delivery and this desktop chat remain unverified. Explicit delegation capture remains necessary.
+
+## Publication scope
+
+Published summary entries omit non-assignment context. An editorial scope correction was applied to the earlier retrospective planning and setup summaries; actual implementation prompts, test outcomes and review decisions were preserved. Runtime appends remain append-only after redaction.

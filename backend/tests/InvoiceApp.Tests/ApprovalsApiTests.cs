@@ -9,7 +9,7 @@ using Xunit;
 
 namespace InvoiceApp.Tests;
 
-public class ApprovalsApiTests
+public partial class ApprovalsApiTests
 {
     private static async Task<HttpClient> Login(WebApplicationFactory<Program> app, string username)
     {
@@ -101,8 +101,6 @@ public class ApprovalsApiTests
 
     [Theory]
     [InlineData("demo.approver", 50000.01, "Manager approval limit is 50,000")]
-    [InlineData("demo.approver", 500000.01, "two distinct approvers")]
-    [InlineData("demo.director", 500000.01, "two distinct approvers")]
     public async Task Approve_OverLimit_IgnoresForgedDirectorAndPreservesInvoice(string username, decimal amount, string reason)
     {
         using var app = new WebApplicationFactory<Program>();

@@ -12,12 +12,12 @@
 - [x] 2.1 Add Manager/Director role enforcement and safe high-value rejection; verify threshold, invalid-role and lifecycle tests.
 - [x] 2.2 Use session identity/role and migrate demo users while preserving Admin rejection; verify authenticated API tests including forged body.
 - [x] 2.3 Update README/account guidance and independently review every generated test; verify snapshot equality and zero writes after failure.
-- [ ] 2.4 Commit stage one with passing checks, then present results and wait for Jagdeep's actual review.
+- [x] 2.4 Commit stage one with passing checks, then present results and wait for Jagdeep's actual review.
 
 ## 3. Dual approval (new prompt after human checkpoint)
 
-- [ ] 3.1 Add immutable history entries and shared atomic transitions; verify both first roles, second Director, duplicate, invalid-state and concurrency tests across service instances.
-- [ ] 3.2 Show progress/history in UI and expose history in responses; verify API contracts and unchanged fields after all rejection paths.
+- [x] 3.1 Add immutable history entries and shared atomic transitions; verify both first roles, second Director, duplicate, invalid-state and concurrency tests across service instances.
+- [x] 3.2 Show progress/history in UI and expose history in responses; verify API contracts and unchanged fields after all rejection paths.
 - [ ] 3.3 Review tests, commit stage two and wait for Jagdeep's actual review.
 
 ## 4. Browser and mutation evidence
@@ -35,7 +35,7 @@
 
 ## 6. Recording and submission
 
-- [ ] 6.1 Prepare approximately nine-minute live demo guide; verify the recording commands on the final code.
+- [ ] 6.1 Verify the final documented commands for an approximately nine-minute live recording on the final code.
 - [ ] 6.2 Jagdeep records/uploads the real MP4; verify evaluator access and add the real video link in a final commit.
 
 ## Workflow follow-up

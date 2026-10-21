@@ -9,8 +9,7 @@ node_modules/
 test-results/
 playwright-report/
 
-# Local tooling, reports, and private planning
-/jagdeep/
+# Local tooling and generated reports
 StrykerOutput/
 __pycache__/
 *.pyc

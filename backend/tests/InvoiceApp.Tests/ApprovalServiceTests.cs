@@ -4,7 +4,7 @@ using Xunit;
 
 namespace InvoiceApp.Tests;
 
-public class ApprovalServiceTests
+public partial class ApprovalServiceTests
 {
     private static Invoice InvoiceWith(string id, InvoiceStatus status) =>
         new() { Id = id, CustomerName = "Test School", Amount = 100m, Status = status };
@@ -102,7 +102,7 @@ public class ApprovalServiceTests
 
         var result = new ApprovalService(repository).Approve(invoice.Id, "named.user", role);
 
-        Assert.Same(invoice, result);
+        Assert.NotSame(invoice, result);
         Assert.Equal(InvoiceStatus.Approved, result.Status);
         Assert.Equal("named.user", result.DecidedBy);
         Assert.InRange(result.DecidedAt!.Value, before, DateTime.UtcNow);
@@ -110,6 +110,11 @@ public class ApprovalServiceTests
         Assert.Equal("Boundary School", result.CustomerName);
         Assert.Equal(new DateTime(2026, 10, 21, 1, 2, 3, DateTimeKind.Utc), result.CreatedAt);
         Assert.Equal("Preserve this note", result.DecisionNote);
+        var approval = Assert.Single(result.Approvals);
+        Assert.Equal("named.user", approval.Username);
+        Assert.Equal(role, approval.Role);
+        Assert.Equal(result.DecidedAt, approval.ApprovedAt);
+        Assert.Equal(DateTimeKind.Utc, approval.ApprovedAt.Kind);
         Assert.Equal(1, repository.UpdateCount);
     }
 
@@ -117,8 +122,6 @@ public class ApprovalServiceTests
     [InlineData(ApprovalRole.Manager, 50000.01, "Manager approval limit is 50,000")]
     [InlineData(ApprovalRole.Manager, 499999.99, "Manager approval limit is 50,000")]
     [InlineData(ApprovalRole.Manager, 500000, "Manager approval limit is 50,000")]
-    [InlineData(ApprovalRole.Manager, 500000.01, "two distinct approvers")]
-    [InlineData(ApprovalRole.Director, 500000.01, "two distinct approvers")]
     public void Approve_OverLimit_PreservesEveryFieldWithoutWrite(ApprovalRole role, decimal amount, string reason)
     {
         var invoice = Pending(amount);

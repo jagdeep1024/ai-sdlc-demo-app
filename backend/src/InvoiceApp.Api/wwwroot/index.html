@@ -56,6 +56,7 @@
               <th scope="col">Customer</th>
               <th scope="col">Amount</th>
               <th scope="col">Status</th>
+              <th scope="col">Approval history</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
@@ -65,7 +66,7 @@
 
       <section id="approvals-panel" role="tabpanel" aria-labelledby="tab-approvals" hidden>
         <h2>Pending approvals</h2>
-        <p>Manager limit: 50,000. Director limit: 500,000. Higher amounts require two distinct approvers, with a Director second. Admin can reject but cannot approve.</p>
+        <p>Manager limit: 50,000. Director limit: 500,000. Higher amounts require two distinct approvers: Manager or Director first, a different Director second. Admin can reject but cannot approve.</p>
         <p id="pending-empty" hidden>Nothing is waiting for approval.</p>
         <ul id="pending-list"></ul>
         <p id="decision-error" role="alert" hidden></p>
