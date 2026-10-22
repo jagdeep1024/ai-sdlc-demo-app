@@ -2,6 +2,8 @@
 
 A small invoice approval app used for live AI-in-SDLC demos. It is deliberately simple: a .NET 8 API, a plain web UI, and an in-memory store, so it runs with one command and no database.
 
+[Assignment write-up and submission status](ASSIGNMENT.md) · [PR #1](https://github.com/jagdeep1024/ai-sdlc-demo-app/pull/1) · [Review findings and verdicts](documentation/REVIEW-FINDINGS.md)
+
 ## Run it
 
 ```

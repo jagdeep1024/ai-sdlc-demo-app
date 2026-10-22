@@ -28,10 +28,10 @@
 
 ## 5. PR review and write-up
 
-- [ ] 5.1 Open PR into fork main; verify branch target and standalone commit history.
-- [ ] 5.2 Apply the workshop review prompt when provided; record each real finding and an evidence-based verdict, then obtain Jagdeep's review.
-- [ ] 5.3 Fix correctness findings with regression tests; rerun appropriate checks.
-- [ ] 5.4 Complete ASSIGNMENT.md with results, limitations and links; verify every hand-in item except pending recording.
+- [x] 5.1 Open PR into fork main; verify branch target and standalone commit history.
+- [ ] 5.2 Apply the authorized recorded standard fallback (workshop original unavailable), record every actual finding/verdict, then obtain Jagdeep's PR-review acceptance.
+- [x] 5.3 Fix correctness findings with regression tests; rerun appropriate checks.
+- [x] 5.4 Complete ASSIGNMENT.md with results, limitations and links; verify every hand-in item except pending recording.
 
 ## 6. Recording and submission
 

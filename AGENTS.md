@@ -55,4 +55,4 @@ Main agent coordinates; implementation agent may delegate an independent read-on
 Review every generated test for a real failing scenario, not just execution coverage.
 Review findings require stable IDs, evidence, and fixed/dismissed/deferred verdicts with reasons.
 Record actual AI interactions and distinguish human instructions from delegated prompts; never fabricate human decisions.
-The workshop review prompt and final video are pending external inputs.
+The workshop-specific review prompt was unavailable; Jagdeep authorized the standard fallback recorded in documentation/REVIEW-PROMPT.md. The final video is pending.

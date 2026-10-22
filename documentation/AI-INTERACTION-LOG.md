@@ -641,3 +641,145 @@ Retrospective summaries are labelled; hook configuration alone does not prove au
   "status": "completed"
 }
 ```
+
+## pr-review-human-authorization
+
+- Time: 2026-10-22T05:51:23.754655+00:00
+- Source: human-message
+- Speaker: Jagdeep
+- Event: instruction
+
+```json
+{
+  "prompt": "okay, lets go ahead with next stage, we can use your own review prompt",
+  "scope": "Proceed with the PR review/write-up stage using the previously proposed standard review prompt because the workshop-specific prompt was unavailable."
+}
+```
+
+## pr-1-review-delegation
+
+- Time: 2026-10-22T05:52:03.290665+00:00
+- Source: agent-delegation
+- Speaker: main-agent
+- Event: prompt
+
+```json
+{
+  "base": "66cb3f9005af1feafb7890f06bbc41fd652b432a",
+  "context": "Read-only review of actual PR diff and surrounding code. Independently inspect code/tests/specification/CI and validate mutation report comparisons programmatically as needed. No code or evidence-file writes by reviewer; main records the original report. Structured report: Objective, Changes, Verification, Findings, Pending decisions.",
+  "head": "68995db52097a2acaa2fdc45d545c1b7cdfb3b5c",
+  "pr": "https://github.com/jagdeep1024/ai-sdlc-demo-app/pull/1",
+  "prompt": "Review this pull request against the assignment specification and AGENTS.md. Inspect the entire diff and relevant surrounding code.\n\nCheck approval thresholds, distinct-user enforcement, Director-only second approval, server-session authority, unchanged invoice state after rejected attempts, and concurrent operations.\n\nReview whether unit tests catch realistic mistakes, whether the Playwright test genuinely exercises the UI rejection, and whether mutation results are comparable and accurately reported.\n\nIdentify correctness defects, regressions, missing tests, and misleading documentation. For each actionable finding, provide a stable ID, severity, file/line, failure scenario, and recommended correction. Separate findings from optional suggestions. Do not invent findings to fill a quota. Do not modify files.",
+  "target": "pr-review-agent"
+}
+```
+
+## pr-1-initial-review-report
+
+- Time: 2026-10-22T05:56:30.056033+00:00
+- Source: agent-review
+- Speaker: pr-review-agent
+- Event: report
+
+```json
+{
+  "head": "68995db52097a2acaa2fdc45d545c1b7cdfb3b5c",
+  "pr": "https://github.com/jagdeep1024/ai-sdlc-demo-app/pull/1",
+  "report": "Objective\n\nIndependently review PR #1 at \u006068995db\u0060 against AGENTS.md, the assignment skill, and OpenSpec requirements.\n\nChanges\n\nNone. Read-only review of the production changes, tests, CI, evidence tooling, and existing documentation.\n\nVerification\n\nExecuted successfully:\n\n- \u0060.NET tests\u0060: **82 passed**, zero failures/skips.\n- \u0060npm run typecheck\u0060 in \u0060e2e\u0060: passed.\n- \u0060npm test\u0060 in \u0060e2e\u0060: **1 Chromium test passed**.\n- \u0060npm run spec:validate\u0060: passed strict validation.\n- \u0060npm run evidence:test\u0060: **5 passed**.\n- Committed PR diff whitespace check: passed.\n\nReviewed threshold boundaries, server-session authority, distinct identity across sessions, Director-only second approval, snapshot isolation, rollback after rejected operations, and approval/rejection/deletion/read concurrency.\n\nProgrammatically checked mutation evidence:\n\n- Both reports contain 99 mutants; 55 scored.\n- Counts reproduce **89.09% → 94.55%**.\n- Mutation definitions, all common test sources, and report production sources match.\n- Only IDs **4, 67, 69** change status: Survived → Killed.\n- Selected cases increase **40 → 49** through the single added mutation-gap test source.\n- All 17 production hashes match the baseline commit and reviewed head; configuration hash matches.\n- Remaining IDs **29/32/33** are accurately disclosed defensive-state gaps.\n\nFindings\n\n**No actionable correctness defects or review blockers found.** No finding IDs generated.\n\nThe Playwright scenario genuinely signs in, creates/submits the invoice through UI controls, clicks Approve, checks the visible rejection, reloads, and compares the complete persisted invoice. It uses no mocks or API-created setup.\n\nTests exercise realistic failures and assert complete unchanged state plus repository write counts where applicable. Repository locking covers the entire isolated transition and uses the same synchronization for reads and deletion.\n\nOptional suggestion: extend browser coverage to the high-value two-account sequence in a future change. Existing API/domain/concurrency tests and recorded manual UI checks cover that behavior; its absence is not a blocker.\n\nPending decisions\n\n- Review the forthcoming \u0060ASSIGNMENT.md\u0060 separately; it was absent from the reviewed PR head.\n- Human acceptance remains a human decision.\n- I did not rerun Stryker or independently query hosted CI. Mutation conclusions above concern the retained raw reports, source/configuration consistency, and newly executed tests.\n"
+}
+```
+
+## pr-1-docs-review-report
+
+- Time: 2026-10-22T05:59:27.536106+00:00
+- Source: agent-review
+- Speaker: pr-review-agent
+- Event: report
+
+```json
+{
+  "report": "Objective\n\nReview the new hand-in documentation and final AGENTS amendment for accuracy and traceability.\n\nChanges\n\nNone. Read-only documentation addendum; no tests repeated because application code is unchanged.\n\nVerification\n\nCompared \u0060ASSIGNMENT.md\u0060, review prompt/report/verdicts, AGENTS changes, added interaction records, commit history, existing tests, and previously audited mutation evidence. All local Markdown link targets exist.\n\nFindings\n\n**No new correctness blockers or materially misleading claims found.**\n\n- The recorded fallback matches the actual review prompt.\n- \u0060PR-REVIEW.md\u0060 preserves my original report.\n- PR-S01 correctly identifies an optional suggestion, attributes its tracking ID to the main agent, and records an agent Deferred disposition.\n- The write-up accurately describes boundaries, authoritative sessions, atomic transitions, test counts, mutation scope/results, residual mutants, and staged commits.\n- Human acceptance and the missing video remain explicitly pending.\n- The new AGENTS paragraph accurately replaces the outdated workshop-prompt status.\n\nOptional documentation improvements:\n\n- Retain the main agent’s verification observation for newer hosted run \u006039728576732\u0060, which \u0060ASSIGNMENT.md\u0060 links. Current retained JSONL records older successful run \u006039637629348\u0060; either record the newer actual verification or link the retained run.\n- Restore missing spaces in newly authored prose, such as \u0060Up to50,000\u0060, \u0060OpenSpec1.14.3\u0060, and \u0060PR#1 at68995db\u0060. Preserve original reports and historical payloads.\n\nPending decisions\n\nHuman PR-review acceptance, recording/upload of the video, and the final documentation commit remain outstanding. My independent review did not fetch hosted CI; its claim remains supported by the main agent’s verification evidence.\n",
+  "scope": "Forthcoming ASSIGNMENT.md and review evidence/AGENTS changes; application code unchanged."
+}
+```
+
+## pr-1-docs-verification-and-verdicts
+
+- Time: 2026-10-22T05:59:27.540551+00:00
+- Source: explicit-orchestration
+- Speaker: main-agent
+- Event: verification
+
+```json
+{
+  "ci_run": "https://github.com/jagdeep1024/ai-sdlc-demo-app/actions/runs/39728576732",
+  "conclusion": "success",
+  "head": "68995db52097a2acaa2fdc45d545c1b7cdfb3b5c",
+  "human_acceptance": "pending",
+  "jobs": {
+    "mutation": "success",
+    "verification": "success"
+  },
+  "pr_ci": "gh pr checks1 also confirmed verification/mutation SUCCESS for PR-triggered run39730417652",
+  "status": "completed",
+  "verdicts": {
+    "PR-D01": {
+      "reason": "Fresh actual hosted metadata read and retained here for linked run.",
+      "verdict": "fixed"
+    },
+    "PR-D02": {
+      "reason": "Copy-edited new prose; original reports/payloads unchanged.",
+      "verdict": "fixed"
+    },
+    "PR-S01": {
+      "reason": "Future second browser scenario; current required rejection E2E and API/domain/concurrency/live UI cover behavior.",
+      "verdict": "deferred"
+    }
+  }
+}
+```
+
+## pr-1-auth-scope-question
+
+- Time: 2026-10-22T06:03:34.123697+00:00
+- Source: agent-delegation
+- Speaker: main-agent
+- Event: prompt
+
+```json
+{
+  "prompt": "SessionAuthMiddleware returns an empty401 for absent/invalid sessions, while business/role rejections have JSON reasons and the UI maps401 to Session expired. Given the assignment clear-reason requirement and explicit anonymous401 scenario, is this a material introduced defect, existing auth-boundary behavior adequately signalled by401, or an optional API error consistency enhancement? Inspect scope/spec exactly and state rationale independently. No edits/tests needed.",
+  "publication_note": "Assignment-relevant excerpt of the actual follow-up; coordination about earlier documentation fixes omitted.",
+  "target": "pr-review-agent"
+}
+```
+
+## pr-1-auth-scope-answer
+
+- Time: 2026-10-22T06:03:34.126467+00:00
+- Source: agent-review
+- Speaker: pr-review-agent
+- Event: report
+
+```json
+{
+  "report": "Objective\n\nAssess whether the empty anonymous/invalid-session \u0060401\u0060 is a material defect.\n\nChanges\n\nNone.\n\nVerification\n\nRechecked the specification and middleware behavior against the reviewed base/head. The empty \u0060401\u0060 behavior predates this PR.\n\nFindings\n\n**Existing authentication-boundary behavior, with an optional API error consistency enhancement. No new defect finding warranted.**\n\nThe explicit anonymous scenario requires an **unauthorized response**, which \u0060401\u0060 supplies. The session-authority requirement also prevents anonymous requests from reaching approval logic. Business and role failures provide specific JSON reasons; an expired authenticated UI session receives the visible “Session expired.” message.\n\nThe broader clear-reason wording could justify adding \u0060{ error: \"Authentication is required.\" }\u0060 for API consistency, but the specification does not explicitly require a JSON error body for anonymous authentication failures. Treating the existing standard \u0060401\u0060 as a material introduced defect would overstate both the diff and the stated anonymous scenario.\n\nPending decisions\n\nNo auth change is necessary for this PR. A consistent authentication error body can be considered separately. PR-D01 and PR-D02 fixes are acknowledged from the main agent’s report; I have not independently rechecked those edits.\n"
+}
+```
+
+## pr-1-writeup-final-verification
+
+- Time: 2026-10-22T06:04:41.973337+00:00
+- Source: explicit-orchestration
+- Speaker: main-agent
+- Event: report
+
+```json
+{
+  "Changes": "Opened draft PR1 into fork main; retained exact fallback prompt, original independent review/addenda, per-item verdict ledger, root ASSIGNMENT.md with honest pending video/human status, and README/AGENTS/OpenSpec updates.",
+  "Findings": "No correctness blockers. Actual optional PR-S01 deferred with coverage rationale; documentation suggestions PR-D01 and PR-D02 fixed. Earlier TR-S1-01/TR-S2-01/CI-01 fixed. Existing401 auth-boundary clarification required no code change and is not presented as an introduced defect.",
+  "Objective": "Complete authorized standard-prompt PR self-review and prepare the evaluator write-up.",
+  "Pending decisions": "Jagdeep PR-review checkpoint, including optional deferral; actual8–10 minute video and accessible link; final submission remains incomplete until those steps.",
+  "Verification": "Independent reviewer reran82 .NET cases, one Chromium test, five logger checks, TypeScript, OpenSpec strict and diff-check. Audited both raw mutation reports and source/config/test consistency. Main verified authored local links, strict specification validation, unchanged17 production C# hashes, hosted run39728576732 and successful PR-triggered checks."
+}
+```
