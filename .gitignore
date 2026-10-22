@@ -8,3 +8,10 @@ node_modules/
 .env
 test-results/
 playwright-report/
+
+# Local tooling and generated reports
+StrykerOutput/
+__pycache__/
+*.pyc
+.codex/hook-trust.json
+documentation/.ai-log.lock
