@@ -118,4 +118,12 @@ Implementation-agent verdict: accepted the review conclusion; no changes require
 
 **CI-01 — fixed (agent verdict):** the logger test iterated all dotted files, including its empty lockfile, and checked the final iterated file for a redaction marker. Linux directory order exposed this latent test defect. It now checks both named published outputs explicitly, retains every forbidden-secret assertion, and checks redaction in each output. Missing outputs fail directly. Independent review confirmed the assertions were strengthened and all five logger checks passed locally. The logger implementation did not change.
 
-This fix requires a new hosted run; the first failed run is retained as evidence rather than described as successful.
+The corrected [hosted run 39637629348](https://github.com/jagdeep1024/ai-sdlc-demo-app/actions/runs/39637629348) completed successfully for commit `b14a7124603724bb88517cc129a77c075df5039c`. Both verification and mutation jobs passed:
+
+- 82 domain/API/concurrency test cases passed, zero failures/skips.
+- One real Chromium rejection scenario passed on the hosted Linux runner.
+- Five evidence-logger checks and strict OpenSpec validation passed.
+- TypeScript validation passed.
+- Approval-service mutation score: **94.55%**.
+
+The original failed run remains visible as evidence of CI-01 and its correction. Earlier pending statements in the original review describe its pre-push state; hosted execution is now verified.

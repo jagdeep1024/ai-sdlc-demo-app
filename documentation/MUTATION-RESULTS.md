@@ -60,3 +60,7 @@ dotnet stryker --skip-version-check
 The committed config selects the same file, test filter, mutation level, concurrency and thresholds. It emits HTML and JSON reports under ignored `StrykerOutput/`. The measurements above used the same command with separate output directories; that output-location difference does not change mutation selection or scoring.
 
 To reproduce the before measurement, use baseline commit `1f457d9` with the same committed Stryker configuration; it predates only the new test file. Keep both production code and configuration unchanged when comparing. Hosted CI runs the final measurement and uploads the generated report; its actual check result is available in GitHub Actions.
+
+## Hosted confirmation
+
+The [successful CI run for b14a712](https://github.com/jagdeep1024/ai-sdlc-demo-app/actions/runs/39637629348) independently reproduced **94.55%** on the hosted Linux runner. The verification job also passed 82 .NET cases, five logger checks, TypeScript, specification validation, and the one Chromium end-to-end scenario. This confirms the final measurement on CI; it does not expand the mutation scope beyond ApprovalService.
