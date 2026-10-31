@@ -2,17 +2,82 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, codex/role-based-approval-limits]
   pull_request:
     branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
-  build-and-test:
+  verification:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'
-      - run: dotnet build backend/InvoiceApp.sln --configuration Release
-      - run: dotnet test backend/InvoiceApp.sln --configuration Release --no-build
+          global-json-file: global.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            e2e/package-lock.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install specification tooling
+        run: npm ci
+      - name: Validate OpenSpec
+        run: npm run spec:validate
+      - name: Test evidence logger
+        run: npm run evidence:test
+      - name: Test domain and HTTP API
+        run: dotnet test backend/InvoiceApp.sln --configuration Release
+      - name: Install browser test tooling
+        working-directory: e2e
+        run: npm ci
+      - name: Check browser test TypeScript
+        working-directory: e2e
+        run: npm run typecheck
+      - name: Install Chromium and runner dependencies
+        working-directory: e2e
+        run: npx playwright install --with-deps chromium
+      - name: Test rejected approval through the UI
+        working-directory: e2e
+        run: npm test
+      - name: Upload browser report and failure diagnostics
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: |
+            e2e/playwright-report/
+            e2e/test-results/
+          if-no-files-found: ignore
+          retention-days: 7
+
+  mutation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - name: Restore pinned Stryker tool
+        run: dotnet tool restore
+      - name: Check approval-service mutation score
+        working-directory: backend/tests/InvoiceApp.Tests
+        run: dotnet stryker --skip-version-check --output ../../../StrykerOutput
+      - name: Upload mutation reports
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: mutation-report
+          path: StrykerOutput/
+          if-no-files-found: ignore
+          retention-days: 7

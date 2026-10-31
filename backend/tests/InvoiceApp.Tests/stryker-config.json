@@ -1,0 +1,22 @@
+{
+  "stryker-config": {
+    "solution": "../../InvoiceApp.sln",
+    "project": "InvoiceApp.Domain.csproj",
+    "mutate": [
+      "**/ApprovalService.cs"
+    ],
+    "test-case-filter": "FullyQualifiedName~InvoiceApp.Tests.ApprovalServiceTests",
+    "mutation-level": "Standard",
+    "reporters": [
+      "cleartext",
+      "json",
+      "html"
+    ],
+    "concurrency": 2,
+    "thresholds": {
+      "high": 90,
+      "low": 80,
+      "break": 80
+    }
+  }
+}

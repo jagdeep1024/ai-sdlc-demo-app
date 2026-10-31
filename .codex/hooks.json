@@ -1,0 +1,53 @@
+{
+  "description": "Assignment evidence only. Review code and trust these definitions before use.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/scripts/ai_log.py\" hook",
+            "timeout": 10,
+            "statusMessage": "Recording redacted assignment evidence"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/scripts/ai_log.py\" hook",
+            "timeout": 10,
+            "statusMessage": "Recording redacted assignment evidence"
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/scripts/ai_log.py\" hook",
+            "timeout": 10,
+            "statusMessage": "Recording redacted assignment evidence"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/scripts/ai_log.py\" hook",
+            "timeout": 10,
+            "statusMessage": "Recording redacted assignment evidence"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -22,3 +22,6 @@ app.UseMiddleware<SessionAuthMiddleware>();
 app.MapControllers();
 
 app.Run();
+
+// Exposes the app entry point to the HTTP integration test host.
+public partial class Program { }

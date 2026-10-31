@@ -10,4 +10,13 @@ public class Invoice
     public string? DecidedBy { get; set; }
     public DateTime? DecidedAt { get; set; }
     public string? DecisionNote { get; set; }
+    public IReadOnlyList<ApprovalEntry> Approvals { get; set; } = Array.Empty<ApprovalEntry>();
+
+    // Repository boundaries copy the mutable envelope; history entries are immutable records.
+    public Invoice Snapshot() => new()
+    {
+        Id = Id, CustomerName = CustomerName, Amount = Amount, Status = Status,
+        CreatedAt = CreatedAt, DecidedBy = DecidedBy, DecidedAt = DecidedAt,
+        DecisionNote = DecisionNote, Approvals = Array.AsReadOnly(Approvals.ToArray())
+    };
 }

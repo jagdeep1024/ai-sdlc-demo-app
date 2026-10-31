@@ -1,0 +1,254 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:invoice-assignment:augmentation-log:v2",
+  "title": "AI augmentation event",
+  "description": "Reviewer fields plus original evidence. Null/empty historical metadata means unrecorded, not unused.",
+  "type": "object",
+  "required": [
+    "id",
+    "timestamp",
+    "stage",
+    "agent",
+    "agent_name",
+    "agent_type",
+    "ai_tool",
+    "model",
+    "mode",
+    "related_ids",
+    "parent_task",
+    "context",
+    "request",
+    "skills_used",
+    "subagents_used",
+    "mcp_tools_used",
+    "tools_used",
+    "suggestion",
+    "human_decision",
+    "action_verification",
+    "limitation",
+    "status",
+    "artifacts",
+    "schema_version",
+    "source",
+    "speaker",
+    "event",
+    "data",
+    "normalization"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "stage": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "agent": {
+      "type": "string"
+    },
+    "agent_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "agent_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ai_tool": {
+      "type": "string"
+    },
+    "model": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "mode": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "related_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "parent_task": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "context": {
+      "type": "string"
+    },
+    "request": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "skills_used": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "type",
+          "purpose",
+          "invocation"
+        ],
+        "properties": {
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "purpose": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "invocation": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "subagents_used": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "type",
+          "task",
+          "status"
+        ],
+        "properties": {
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "task": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "status": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "mcp_tools_used": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "server",
+          "tool",
+          "purpose"
+        ],
+        "properties": {
+          "server": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "tool": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "purpose": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "tools_used": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "suggestion": {},
+    "human_decision": {},
+    "action_verification": {},
+    "limitation": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "type": "string"
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "schema_version": {
+      "const": 2
+    },
+    "source": {
+      "type": "string"
+    },
+    "speaker": {
+      "type": "string"
+    },
+    "event": {
+      "type": "string"
+    },
+    "data": {},
+    "normalization": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

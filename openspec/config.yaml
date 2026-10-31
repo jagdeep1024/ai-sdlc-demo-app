@@ -1,0 +1,7 @@
+schema: spec-driven
+context: |
+  Extend the existing .NET 8 invoice demo; keep Domain business rules separate from Api auth/storage/UI.
+  Implement single-approver limits first and dual approval in a separate prompt/commit.
+  Pause for Jagdeep's real review after each stage. No fabricated interactions or verdicts.
+  High-value first approver can be Manager or Director; second must be a different Director.
+  Admin has no approval authority. All failures leave the entire invoice unchanged.

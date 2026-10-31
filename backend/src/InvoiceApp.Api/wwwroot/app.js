@@ -57,8 +57,31 @@
         el('td', {}, invoice.customerName),
         el('td', {}, money.format(invoice.amount)),
         el('td', { class: `status status-${invoice.status}` }, invoice.status.replace(/([a-z])([A-Z])/g, '$1 $2')),
+        el('td', {}, approvalProgress(invoice)),
         actions);
     }));
+  }
+
+
+  function approvalProgress(invoice) {
+    const approvals = invoice.approvals || [];
+    const required = invoice.amount > 500000 ? 2 : 1;
+    const progress = el('div', { 'aria-label': `Approval progress for ${invoice.id}` });
+    if (invoice.status === 'Approved' && approvals.length === 0) {
+      progress.append(el('p', {}, `Legacy approval by ${invoice.decidedBy || 'unknown user'}; history unavailable.`));
+      return progress;
+    }
+    progress.append(el('p', {}, `${approvals.length} of ${required} approvals recorded`));
+    if (approvals.length) {
+      progress.append(el('ul', { 'aria-label': `Approval history for ${invoice.id}` },
+        ...approvals.map((entry) => el('li', {}, `${entry.username} (${entry.role}) · ${entry.approvedAt}`))));
+    }
+    if (invoice.status === 'PendingApproval' && required === 2) {
+      progress.append(el('p', {}, approvals.length === 1
+        ? 'Waiting for a different Director to give the second approval.'
+        : 'Two distinct approvers required: Manager or Director first, a different Director second.'));
+    }
+    return progress;
   }
 
   function renderPending(pending) {
@@ -74,6 +97,7 @@
 
       return el('li', {},
         el('span', {}, `${invoice.id} · ${invoice.customerName} · ${money.format(invoice.amount)}`),
+        approvalProgress(invoice),
         el('span', {}, approve),
         el('div', { class: 'reject-row' }, reason, reject));
     }));
@@ -90,6 +114,7 @@
   }
 
   function signOut() {
+    showError('decision-error', '');
     if (session) api('/auth/logout', { method: 'POST' }).catch(() => {});
     session = null;
     sessionStorage.removeItem('session');
@@ -104,6 +129,7 @@
         method: 'POST',
         body: JSON.stringify({ username: $('username').value, password: $('password').value })
       });
+      showError('decision-error', '');
       session = { token: result.token, username: result.username, role: result.role };
       sessionStorage.setItem('session', JSON.stringify(session));
       $('password').value = '';
