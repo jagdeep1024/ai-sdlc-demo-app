@@ -38,7 +38,7 @@
 - [x] 6.1 Verify documented execution evidence against the reviewed code; the recorded Playwright command reaches one passing case.
 - [x] 6.2 Jagdeep records/exports the MP4; verify format, duration and sampled execution. Local export is 8:01.6, H.264/AAC,1920× 1080 and fully decodable.
 - [x] 6.3 Obtain the actual evaluator-accessible video URL, verify Drive reader permission and add it to ASSIGNMENT.md and the PR.
-- [ ] 6.4 Clarify and address Jagdeep's requested review changes, record actual acceptance and finish the external hand-in; keep the PR open for evaluation.
+- [ ] 6.4 Complete the requested first-person documentation revisions without changing findings/verdicts or video dialogue, obtain final owner acceptance and finish the OneDrive ZIP/form hand-in; keep the PR open for evaluation.
 
 ## Workflow follow-up
 

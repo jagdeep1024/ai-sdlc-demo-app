@@ -1,6 +1,6 @@
 # Browser test and CI verification
 
-Current status — 31 October 2026: the browser scenario and hosted checks are complete. The local recorded demo export was also verified, including footage of a Playwright run reaching one passing case. Historical reviewer pending statements below are preserved; the video is now linked with sharing permissions verified, while human review changes are requested. Current details are in ASSIGNMENT.md.
+Current status — 31 October 2026: the browser scenario and hosted checks are complete. The local recorded demo export was also verified, including footage of a Playwright run reaching one passing case. Historical reviewer pending statements below are preserved; I have linked my video with sharing permissions verified and am revising the documentation before final acceptance. Current details are in ASSIGNMENT.md.
 
 ## Rejected over-limit approval
 

@@ -1,6 +1,6 @@
 # Review findings and verdicts
 
-The workshop-specific prompt was unavailable; Jagdeep authorized the recorded standard fallback on 22 October 2026. The exact prompt is in [REVIEW-PROMPT.md](REVIEW-PROMPT.md), and the original independent report is in [PR-REVIEW.md](PR-REVIEW.md).
+The workshop-specific prompt was unavailable; I authorized the recorded standard fallback on 22 October 2026. The exact prompt is in [REVIEW-PROMPT.md](REVIEW-PROMPT.md), and the original independent report is in [PR-REVIEW.md](PR-REVIEW.md).
 
 ## Formal PR review
 
@@ -10,7 +10,7 @@ The initial review of PR #1 at `68995db` found **no actionable correctness defec
 | --- | --- | --- | --- |
 | PR-S01 | Optional reviewer suggestion: add an automated high-value two-account browser sequence | **Deferred** | The required rejected-over-limit browser scenario is implemented; both first-approver roles, same-user sessions, Director second, history invariants and concurrent transitions have domain/API/concurrency coverage plus recorded live UI checks. A second browser scenario would improve UI regression coverage in a future change. This is a coverage enhancement, not an identified correctness defect. |
 
-PR-S01 is a tracking ID assigned by the main agent to the reviewer's actual optional suggestion; the reviewer reported no defect IDs. The verdict above is an agent judgement. Jagdeep requested changes before accepting on 31 October 2026; the particular changes have not yet been specified.
+PR-S01 is a tracking ID assigned by the main agent to the reviewer's actual optional suggestion; the reviewer reported no defect IDs. I have retained the agent’s recorded verdict and rationale above. On 31 October 2026 I requested documentation revisions before final acceptance; this wording update does not change the finding or its verdict.
 
 ## Documentation addendum
 
@@ -39,8 +39,8 @@ The review confirmed real before/after counts and unchanged production/configura
 
 The main agent separately asked about the pre-existing empty 401 authentication response. The reviewer confirmed it predates the PR and satisfies the explicit anonymous unauthorized scenario; signed-in UI expiry has a visible reason and business/role failures have JSON reasons. No new defect was identified. Main-agent judgement: no auth-code change in this feature; a uniform authentication JSON body is an optional separate consistency enhancement. The original exchange is retained in PR-REVIEW.md and the log.
 
-## Human checkpoint
+## My final review checkpoint
 
-Jagdeep authorized the fallback prompt and the review stage. On 31 October 2026 he explicitly selected “I want changes before accepting”. This is not acceptance of the agent dispositions, including PR-S01. Clarification of the requested changes is pending; no related code or verdict change is inferred.
+I authorized the fallback prompt and the review stage. On 31 October 2026 I selected “I want changes before accepting”, then requested documentation revisions to present my submission in the first person. I have kept all findings, verdicts and technical reasons unchanged. My final acceptance of the recorded dispositions, including PR-S01, remains pending.
 
-The recorded demo is now uploaded and linked in ASSIGNMENT.md. Video delivery does not clear the human review checkpoint. The PR remains open as a draft and must not be merged or marked accepted automatically.
+I have recorded and uploaded the demo linked in ASSIGNMENT.md. Recording the video does not replace my final review. I will handle the final acceptance and any merge myself; the PR remains an open draft.

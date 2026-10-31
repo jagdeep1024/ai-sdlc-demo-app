@@ -1,6 +1,6 @@
 # PR review prompt
 
-The workshop-specific prompt was unavailable. Jagdeep authorized this structured standard fallback on 22 October 2026. It is the chosen prompt, not a reproduction of the workshop original.
+The workshop-specific prompt was unavailable. I authorized this structured standard fallback on 22 October 2026. It is the chosen prompt, not a reproduction of the workshop original.
 
 ## Exact prompt
 

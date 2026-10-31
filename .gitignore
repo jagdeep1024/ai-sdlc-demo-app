@@ -15,3 +15,7 @@ __pycache__/
 *.pyc
 .codex/hook-trust.json
 documentation/.ai-log.lock
+
+# Local macOS metadata and submission media (included separately in the ZIP)
+.DS_Store
+/Assignment_video.mp4
