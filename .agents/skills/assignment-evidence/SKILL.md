@@ -11,3 +11,5 @@ Log delegated prompts and returned reports through scripts/ai_log.py when availa
 Human decisions require an actual human response. Agent review decisions must be labelled as agent decisions.
 Test reviews explain the defect each test would catch and inspect full-state equality on rejected attempts.
 No secrets or unrelated conversations in submitted logs.
+
+Use the reviewer-aligned augmentation fields documented in documentation/EVIDENCE-WORKFLOW.md when recording new interactions. Include known model/mode, skills, tools, affected artifacts, verification and outcome; use null/empty values for unrecorded details and preserve the original payload and speaker attribution. Never infer a human decision from an agent report.

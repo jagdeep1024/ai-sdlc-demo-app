@@ -25,6 +25,64 @@ class EvidenceTests(unittest.TestCase):
         return dict(id=identifier, source='agent-delegation', speaker='main-agent',
                     event='prompt', data={'prompt': 'Inspect domain rules.'})
 
+    def test_migration_preserves_payload_timestamps_and_unknowns(self):
+        folder = self.root / 'documentation'
+        folder.mkdir()
+        original = self.event()
+        original['timestamp'] = '2026-10-21T15:34:02+00:00'
+        original['data']['prompt'] = 'Inspect ```quoted``` rules.'
+        source = folder / 'ai-interactions.jsonl'
+        source.write_text(json.dumps(original) + '\n')
+        logger.migrate(self.root)
+        migrated = json.loads(source.read_text())
+        for key, value in original.items():
+            self.assertEqual(value, migrated[key])
+        for key in logger.REVIEW_FIELDS:
+            self.assertIn(key, migrated)
+        self.assertIsNone(migrated['model'])
+        self.assertIsNone(migrated['mode'])
+        self.assertIsNone(migrated['human_decision'])
+        self.assertEqual('recorded', migrated['status'])
+        before = (source.read_bytes(), (folder / 'AI-INTERACTION-LOG.md').read_bytes())
+        logger.migrate(self.root)
+        self.assertEqual(before, (source.read_bytes(), (folder / 'AI-INTERACTION-LOG.md').read_bytes()))
+        blocks = (folder / 'AI-INTERACTION-LOG.md').read_text().split('```json\n')[1:]
+        self.assertEqual(migrated, json.loads(blocks[0].split('\n```')[0]))
+
+    def test_explicit_reviewer_metadata_redacted_and_retry_checked(self):
+        event = self.event()
+        event.update(stage='review', model='explicit-test-model', mode='agent',
+                     skills_used=[dict(name='assignment-evidence', type='custom',
+                                       purpose='Review evidence', invocation='explicit')],
+                     action_verification='token=privatevalue', status='partial')
+        logger.append(self.root, event)
+        source = self.root / 'documentation/ai-interactions.jsonl'
+        row = json.loads(source.read_text())
+        self.assertEqual('explicit-test-model', row['model'])
+        self.assertEqual(event['skills_used'], row['skills_used'])
+        self.assertNotIn('privatevalue', source.read_text())
+        logger.append(self.root, event)
+        event['model'] = 'conflicting-model'
+        with self.assertRaises(ValueError):
+            logger.append(self.root, event)
+        event = self.event('bad-array')
+        event['skills_used'] = 'invalid'
+        with self.assertRaises(ValueError):
+            logger.append(self.root, event)
+
+    def test_native_model_and_human_decision_are_not_confused(self):
+        hook = logger.hook_event(dict(hook_event_name='UserPromptSubmit', prompt='Agent-authored smoke test',
+                                     model='recorded-model'))
+        row = logger.normalize(hook)
+        self.assertEqual('recorded-model', row['model'])
+        self.assertIsNone(row['human_decision'])
+        human = self.event()
+        human.update(source='human-message', speaker='Jagdeep')
+        row = logger.normalize(human)
+        self.assertEqual(human['data'], row['human_decision'])
+        self.assertIsNone(row['agent_name'])
+
+
     def test_secrets_are_removed_before_source_is_written(self):
         event = self.event()
         event['data'] = {'password': 'hidden', 'nested': [{'access_token': 'hidden2'}],
