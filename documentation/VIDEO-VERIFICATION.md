@@ -23,4 +23,4 @@ Sampled footage includes the running invoice UI, specification/context and test 
 - Drive metadata confirms `video/mp4`, matching filename and size of 207,593,597 bytes, and `anyone` / `reader` permission with link-only discovery. Folder metadata also reports anyone-with-link reader access.
 - The duration, codec, SHA-256 and visual/decode checks above were measured from the local export. The connector returned matching filename/size and sharing permissions, not a remote checksum; byte-for-byte remote identity is not independently claimed.
 
-I have completed the recording, upload and video linking. I am revising the documentation before accepting PR #1, which remains an open draft. My final PR acceptance and external submission are still pending.
+I have completed the recording, upload and video linking. I accepted the recorded review findings and verdicts, including deferring PR-S01, on 31 October 2026. PR #1 remains an open draft. I reported completing the OneDrive upload and public-download check before this update; replacing that ZIP with the refreshed package and submitting the form remain outstanding.

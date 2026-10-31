@@ -2,7 +2,7 @@
 
 For this assignment, I used Codex to add role-based approval limits to the workshop invoice demo in my [pull request #1](https://github.com/jagdeep1024/ai-sdlc-demo-app/pull/1). My repository is a public fork of [NITIN1670/ai-sdlc-demo-app](https://github.com/NITIN1670/ai-sdlc-demo-app). The PR targets this fork's main, retains upstream history, and stays open for evaluation.
 
-**Submission status — 31 October 2026:** I have completed the staged implementation with AI assistance, obtained an independent agent review, and recorded and uploaded my demo. The verification results and review evidence are linked below. My inspected video export is **8:01.6**, 1920 × 1080, with recorded Playwright execution reaching one passing case. **[Watch the demo video](https://drive.google.com/file/d/1MAjWICXkxnMMIZDsPQJfYFAlomFy8lF9/view?usp=drivesdk).** Drive metadata confirms anyone-with-the-link reader access. **I am revising the documentation before my final PR acceptance.** My PR remains an open draft; final acceptance and the OneDrive ZIP/form submission are still pending.
+**Submission status — 31 October 2026:** I have completed the staged implementation with AI assistance, obtained an independent agent review, and recorded and uploaded my demo. The verification results and review evidence are linked below. My inspected video export is **8:01.6**, 1920 × 1080, with recorded Playwright execution reaching one passing case. **[Watch the demo video](https://drive.google.com/file/d/1MAjWICXkxnMMIZDsPQJfYFAlomFy8lF9/view?usp=drivesdk).** Drive metadata confirms anyone-with-the-link reader access. **I accepted the recorded review findings and verdicts on 31 October 2026, including deferring PR-S01.** My PR remains open as a draft for evaluation. I have reported completing the OneDrive upload and public-download check; after this acceptance update, I need to replace the uploaded ZIP with the refreshed package and submit its link through the form.
 
 ## Evidence at a glance
 
@@ -128,7 +128,7 @@ The original workshop-specific prompt could not be found. I authorized the [reco
 | TR-S2-01: missing history-array/collection mutation assertions | Fixed | Added and independently verified; passing suite |
 | CI-01: directory-order-dependent redaction test | Fixed | Explicitly tests both published files; independent review and Linux CI passed |
 
-PR-S01 is the optional PR-review suggestion; PR-D01 and PR-D02 are documentation-addendum suggestions; TR-S1-01, TR-S2-01 and CI-01 are earlier development/test findings, included for traceability. I have retained the recorded agent dispositions and their supporting reasons without changing any findings or verdicts. I requested documentation revisions before final acceptance; completing the recording did not close that review checkpoint. [REVIEW-FINDINGS.md](documentation/REVIEW-FINDINGS.md) distinguishes findings, mutation observations and human acceptance. No issue was invented to fill a review quota.
+PR-S01 is the optional PR-review suggestion; PR-D01 and PR-D02 are documentation-addendum suggestions; TR-S1-01, TR-S2-01 and CI-01 are earlier development/test findings, included for traceability. After the documentation revisions, I accepted the recorded findings and verdicts, including deferring PR-S01, on 31 October 2026. The findings and technical reasons are unchanged. [REVIEW-FINDINGS.md](documentation/REVIEW-FINDINGS.md) distinguishes findings, mutation observations and human acceptance. No issue was invented to fill a review quota.
 
 ## AI interaction evidence
 
@@ -138,9 +138,9 @@ The [structured interaction source](documentation/ai-interactions.jsonl) and [re
 
 ## Current documentation verification
 
-On 31 October 2026, the augmentation-format revision passed **eight logger tests**, including migration integrity, retry conflicts, concurrent appends, metadata redaction and human/agent attribution. The migration preserved all 55 earlier event IDs, timestamps and payloads; later documentation events are appended separately. The historical PR reviewer’s five logger checks above describe the earlier version, not the expanded suite. These results describe local verification of the documentation/tooling revisions. Earlier hosted CI results do not verify this revised logger; hosted verification must be checked at the final commit after it is pushed. The submission ZIP includes SOURCE-COMMIT.txt identifying its exact source revision.
+On 31 October 2026, the augmentation-format revision passed **eight logger tests**, including migration integrity, retry conflicts, concurrent appends, metadata redaction and human/agent attribution. The migration preserved all 55 earlier event IDs, timestamps and payloads; later documentation events are appended separately. The historical PR reviewer’s five logger checks above describe the earlier version, not the expanded suite. The revised logger and submission documentation at `cc9d88a` also passed hosted verification and mutation checks in [CI run 41226166711](https://github.com/jagdeep1024/ai-sdlc-demo-app/actions/runs/41226166711). This later acceptance-status update changes documentation and interaction evidence only; it does not change the logger or application implementation. The submission ZIP includes SOURCE-COMMIT.txt identifying its exact source revision.
 
-My final acceptance of the review dispositions and the public OneDrive ZIP/form hand-in remain separate pending steps. The unavailable workshop-original review prompt and incomplete historical metadata remain disclosed rather than being treated as completed requirements by wording alone.
+I have completed my final acceptance of the review dispositions and reported that the OneDrive upload and public-download check are done. I still need to replace the uploaded ZIP with the refreshed acceptance-status package and submit its link through the form. The unavailable workshop-original review prompt and incomplete historical metadata remain disclosed rather than being treated as completed requirements by wording alone.
 
 ## Reproduce
 
@@ -171,4 +171,4 @@ cd backend/tests/InvoiceApp.Tests
 dotnet stryker --skip-version-check
 ```
 
-Run the manual UI with dotnet run --project backend/src/InvoiceApp.Api and open localhost:5000. The README lists public local demo credentials. No database or external deployment is needed; invoices and sessions reset on restart. The 8:01.6 MP4 is recorded, uploaded and linked above. Video verification records local inspection and Drive sharing metadata. I am completing the documentation revisions before final PR acceptance and external submission.
+Run the manual UI with dotnet run --project backend/src/InvoiceApp.Api and open localhost:5000. The README lists public local demo credentials. No database or external deployment is needed; invoices and sessions reset on restart. The 8:01.6 MP4 is recorded, uploaded and linked above. Video verification records local inspection and Drive sharing metadata. I have accepted the review findings and verdicts; the remaining delivery steps are replacing the uploaded ZIP with this refreshed package and completing the submission form.

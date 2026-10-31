@@ -10,7 +10,7 @@ The initial review of PR #1 at `68995db` found **no actionable correctness defec
 | --- | --- | --- | --- |
 | PR-S01 | Optional reviewer suggestion: add an automated high-value two-account browser sequence | **Deferred** | The required rejected-over-limit browser scenario is implemented; both first-approver roles, same-user sessions, Director second, history invariants and concurrent transitions have domain/API/concurrency coverage plus recorded live UI checks. A second browser scenario would improve UI regression coverage in a future change. This is a coverage enhancement, not an identified correctness defect. |
 
-PR-S01 is a tracking ID assigned by the main agent to the reviewer's actual optional suggestion; the reviewer reported no defect IDs. I have retained the agent’s recorded verdict and rationale above. On 31 October 2026 I requested documentation revisions before final acceptance; this wording update does not change the finding or its verdict.
+PR-S01 is a tracking ID assigned by the main agent to the reviewer's actual optional suggestion; the reviewer reported no defect IDs. I have retained the agent’s recorded verdict and rationale above. After the requested documentation revisions, I explicitly accepted the recorded findings and verdicts, including deferring PR-S01, on 31 October 2026. No finding, verdict or technical reason changed.
 
 ## Documentation addendum
 
@@ -41,6 +41,6 @@ The main agent separately asked about the pre-existing empty 401 authentication 
 
 ## My final review checkpoint
 
-I authorized the fallback prompt and the review stage. On 31 October 2026 I selected “I want changes before accepting”, then requested documentation revisions to present my submission in the first person. I have kept all findings, verdicts and technical reasons unchanged. My final acceptance of the recorded dispositions, including PR-S01, remains pending.
+I authorized the fallback prompt and the review stage. On 31 October 2026 I selected “I want changes before accepting”, then requested documentation revisions to present my submission in the first person. I have kept all findings, verdicts and technical reasons unchanged. I then explicitly confirmed: “I accept the recorded review findings and verdicts, including deferring PR-S01.” This completes my final review checkpoint.
 
-I have recorded and uploaded the demo linked in ASSIGNMENT.md. Recording the video does not replace my final review. I will handle the final acceptance and any merge myself; the PR remains an open draft.
+I have recorded and uploaded the demo linked in ASSIGNMENT.md. My final review acceptance is now recorded separately from video completion. I will handle any merge myself; the PR remains an open draft.

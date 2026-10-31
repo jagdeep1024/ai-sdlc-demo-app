@@ -29,7 +29,7 @@
 ## 5. PR review and write-up
 
 - [x] 5.1 Open PR into fork main; verify branch target and standalone commit history.
-- [ ] 5.2 Apply the authorized recorded standard fallback (workshop original unavailable), record every actual finding/verdict, then obtain Jagdeep's PR-review acceptance.
+- [x] 5.2 Apply the authorized recorded standard fallback (workshop original unavailable), record every actual finding/verdict, then obtain Jagdeep's PR-review acceptance.
 - [x] 5.3 Fix correctness findings with regression tests; rerun appropriate checks.
 - [x] 5.4 Complete ASSIGNMENT.md with results, limitations and links; verify every hand-in item except pending recording.
 
@@ -38,7 +38,8 @@
 - [x] 6.1 Verify documented execution evidence against the reviewed code; the recorded Playwright command reaches one passing case.
 - [x] 6.2 Jagdeep records/exports the MP4; verify format, duration and sampled execution. Local export is 8:01.6, H.264/AAC,1920× 1080 and fully decodable.
 - [x] 6.3 Obtain the actual evaluator-accessible video URL, verify Drive reader permission and add it to ASSIGNMENT.md and the PR.
-- [ ] 6.4 Complete the requested first-person documentation revisions without changing findings/verdicts or video dialogue, obtain final owner acceptance and finish the OneDrive ZIP/form hand-in; keep the PR open for evaluation.
+- [x] 6.4 Complete first-person documentation revisions without changing findings/verdicts or video dialogue; record Jagdeep’s explicit final acceptance, including deferring PR-S01, on 31 October 2026.
+- [ ] 6.5 Replace the already-uploaded OneDrive ZIP with the refreshed acceptance-status package, verify access, and submit the form; keep the PR open for evaluation.
 
 ## Workflow follow-up
 

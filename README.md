@@ -4,7 +4,7 @@ A small invoice approval app used for live AI-in-SDLC demos. It is deliberately 
 
 [Assignment write-up and submission status](ASSIGNMENT.md) · [PR #1](https://github.com/jagdeep1024/ai-sdlc-demo-app/pull/1) · [Review findings and verdicts](documentation/REVIEW-FINDINGS.md)
 
-[Demo video](https://drive.google.com/file/d/1MAjWICXkxnMMIZDsPQJfYFAlomFy8lF9/view?usp=drivesdk) — 8:01.6 MP4, with anyone-with-link reader access confirmed. I recorded this demo for my assignment. I am revising the documentation before final PR acceptance; my current submission status is in ASSIGNMENT.md.
+[Demo video](https://drive.google.com/file/d/1MAjWICXkxnMMIZDsPQJfYFAlomFy8lF9/view?usp=drivesdk) — 8:01.6 MP4, with anyone-with-link reader access confirmed. I recorded this demo for my assignment. I accepted the recorded review findings and verdicts on 31 October 2026, including deferring PR-S01; my current submission status is in ASSIGNMENT.md.
 
 ## Run it
 
