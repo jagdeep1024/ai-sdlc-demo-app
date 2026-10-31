@@ -1,5 +1,7 @@
 # Independent PR review
 
+Historical review reports from22 October2026 are preserved below. Their pending statements reflect the time of each report; current recording/link/acceptance status is in ASSIGNMENT.md.
+
 Review target: [PR #1](https://github.com/jagdeep1024/ai-sdlc-demo-app/pull/1), base `66cb3f9005af1feafb7890f06bbc41fd652b432a`, head `68995db52097a2acaa2fdc45d545c1b7cdfb3b5c`. The chosen prompt is in REVIEW-PROMPT.md. This is the original reviewer report; subsequent judgements are in REVIEW-FINDINGS.md.
 
 Objective

@@ -2,7 +2,22 @@
 
 [Pull request #1](https://github.com/jagdeep1024/ai-sdlc-demo-app/pull/1) adds role-based approval limits to the workshop invoice demo. This is a public fork of [NITIN1670/ai-sdlc-demo-app](https://github.com/NITIN1670/ai-sdlc-demo-app). The PR targets this fork's main, retains upstream history, and stays open for evaluation.
 
-**Submission status:** implementation and automated verification are complete. PR-review acceptance and the recorded video are pending. **Video link: not yet available — recording/upload required.** The assignment is not represented as fully submitted.
+**Submission status — 31 October 2026:** the feature, automated verification, agent PR review, write-up and recorded/uploaded demo are available. The inspected export is **8:01.6**, 1920 × 1080, with recorded Playwright execution reaching one passing case. **[Watch the demo video](https://drive.google.com/file/d/1MAjWICXkxnMMIZDsPQJfYFAlomFy8lF9/view?usp=drivesdk).** Drive metadata confirms anyone-with-the-link reader access. **Jagdeep requested changes before accepting the PR; the specific requested changes still need clarification.** The PR stays open as a draft, and no completed human acceptance or external hand-in is claimed.
+
+## Hand-in evidence status
+
+| Requirement | Evidence / status |
+| --- | --- |
+| PR on the fork with at least three standalone commits | [PR #1](https://github.com/jagdeep1024/ai-sdlc-demo-app/pull/1), open as a draft; staged history retained |
+| Updated agent context | [AGENTS.md](AGENTS.md) |
+| Spec-driven artifacts | [OpenSpec change](openspec/changes/role-based-approval-limits/) |
+| Unit tests for every approval rule and negative invariants | Reviewed domain/API/concurrency tests; 82 passing cases in retained verification |
+| Playwright rejected-over-limit scenario | [Actual UI test](e2e/tests/approval-limits.spec.ts); one passing case |
+| Before/after mutation scores as text | [Measurements and retained reports](documentation/MUTATION-RESULTS.md): 89.09% → 94.55% |
+| Review findings and verdicts | PR description and [review ledger](documentation/REVIEW-FINDINGS.md) |
+| AI interaction log | [Readable log](documentation/AI-INTERACTION-LOG.md) and [structured source](documentation/ai-interactions.jsonl) |
+| Root write-up with video link | This write-up includes the direct demo link |
+| Recorded 8–10-minute MP4, uploaded and linked | [Export and sharing verification](documentation/VIDEO-VERIFICATION.md) complete; direct video linked above |
 
 ## Behavior and assumptions
 
@@ -48,7 +63,7 @@ The single-approval and dual-approval stages used separate implementation prompt
 - Concurrent service/HTTP cases cover duplicate and distinct approvals, competing approval/rejection, deletion, and reads observing consistent detached snapshots. History-array and returned-collection mutation are tested.
 - One [Playwright scenario](e2e/tests/approval-limits.spec.ts) signs in Manager, creates/submits 50,000.01 through UI controls, attempts approval, checks the visible error, reloads, and compares the entire invoice with its pre-attempt snapshot. It uses no mocks or API-created setup and starts an isolated app on 5097.
 - Independent reviewers examined generated tests and browser assertions; the formal PR reviewer independently reran 82 .NET cases, one Chromium case, five logger tests, TypeScript and strict OpenSpec successfully.
-- [Hosted CI](https://github.com/jagdeep1024/ai-sdlc-demo-app/actions/runs/39728576732) passed verification and mutation jobs. It runs on feature pushes/PRs, with read-only repository permissions and downloadable browser/mutation artifacts.
+- [Hosted CI](https://github.com/jagdeep1024/ai-sdlc-demo-app/actions/runs/39731729852) passed verification and mutation jobs for the reviewed write-up head `303c8ea`. It runs on feature pushes/PRs, with read-only repository permissions and time-limited browser/mutation artifacts; permanent measurements and normalized reports are committed.
 
 A first browser attempt failed while Chromium installation was incomplete, then passed after installation. The first hosted verification run exposed CI-01, a logger-test dependency on directory iteration order and the empty lockfile. The correction explicitly tests both published outputs; subsequent hosted runs passed. These failures and corrections are retained in the evidence.
 
@@ -85,7 +100,7 @@ The original workshop-specific prompt could not be found. Jagdeep authorized the
 | TR-S2-01: missing history-array/collection mutation assertions | Fixed | Added and independently verified; passing suite |
 | CI-01: directory-order-dependent redaction test | Fixed | Explicitly tests both published files; independent review and Linux CI passed |
 
-PR-S01 is the optional PR-review suggestion; PR-D01 and PR-D02 are documentation-addendum suggestions; TR-S1-01, TR-S2-01 and CI-01 are earlier development/test findings, included for traceability. These are agent dispositions; Jagdeep's PR-review checkpoint is pending. [REVIEW-FINDINGS.md](documentation/REVIEW-FINDINGS.md) distinguishes findings, mutation observations and human acceptance. No issue was invented to fill a review quota.
+PR-S01 is the optional PR-review suggestion; PR-D01 and PR-D02 are documentation-addendum suggestions; TR-S1-01, TR-S2-01 and CI-01 are earlier development/test findings, included for traceability. These are agent dispositions. On 31 October 2026 Jagdeep requested changes before acceptance; details remain to be clarified. Completing the recording is not treated as acceptance. [REVIEW-FINDINGS.md](documentation/REVIEW-FINDINGS.md) distinguishes findings, mutation observations and human acceptance. No issue was invented to fill a review quota.
 
 ## AI interaction evidence
 
@@ -122,4 +137,4 @@ cd backend/tests/InvoiceApp.Tests
 dotnet stryker --skip-version-check
 ```
 
-Run the manual UI with dotnet run --project backend/src/InvoiceApp.Api and open localhost:5000. The README lists public local demo credentials. No database or external deployment is needed; invoices and sessions reset on restart. The final recorded 8–10-minute MP4 and accessible video link still need to be supplied.
+Run the manual UI with dotnet run --project backend/src/InvoiceApp.Api and open localhost:5000. The README lists public local demo credentials. No database or external deployment is needed; invoices and sessions reset on restart. The 8:01.6 MP4 is recorded, uploaded and linked above. Video verification records local inspection and Drive sharing metadata. Human PR acceptance remains pending because changes were requested.

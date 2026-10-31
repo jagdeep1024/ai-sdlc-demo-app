@@ -35,8 +35,10 @@
 
 ## 6. Recording and submission
 
-- [ ] 6.1 Verify the final documented commands for an approximately nine-minute live recording on the final code.
-- [ ] 6.2 Jagdeep records/uploads the real MP4; verify evaluator access and add the real video link in a final commit.
+- [x] 6.1 Verify documented execution evidence against the reviewed code; the recorded Playwright command reaches one passing case.
+- [x] 6.2 Jagdeep records/exports the MP4; verify format, duration and sampled execution. Local export is 8:01.6, H.264/AAC,1920× 1080 and fully decodable.
+- [x] 6.3 Obtain the actual evaluator-accessible video URL, verify Drive reader permission and add it to ASSIGNMENT.md and the PR.
+- [ ] 6.4 Clarify and address Jagdeep's requested review changes, record actual acceptance and finish the external hand-in; keep the PR open for evaluation.
 
 ## Workflow follow-up
 

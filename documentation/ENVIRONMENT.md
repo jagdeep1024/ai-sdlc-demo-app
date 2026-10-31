@@ -1,5 +1,7 @@
 # Environment and baseline
 
+The setup versions and baseline result below describe the original implementation environment, not the latest available software releases. The reviewed application implementation is at `303c8ea`; submission media status is maintained in ASSIGNMENT.md.
+
 - Public fork: https://github.com/jagdeep1024/ai-sdlc-demo-app
 - Upstream baseline: `66cb3f9005af1feafb7890f06bbc41fd652b432a`.
 - Feature branch: `codex/role-based-approval-limits`; fork main stays at baseline.

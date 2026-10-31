@@ -14,4 +14,4 @@ Review whether unit tests catch realistic mistakes, whether the Playwright test 
 Identify correctness defects, regressions, missing tests, and misleading documentation. For each actionable finding, provide a stable ID, severity, file/line, failure scenario, and recommended correction. Separate findings from optional suggestions. Do not invent findings to fill a quota. Do not modify files.
 ```
 
-Review records and verdicts are in REVIEW-FINDINGS.md. The initial review targets PR #1 at head `68995db` against base `66cb3f9`. Findings refer to that reviewed state; fixes and any follow-up verification are recorded separately.
+Review records and verdicts are in REVIEW-FINDINGS.md. The initial review targeted PR #1 at head `68995db` against base `66cb3f9`. Findings refer to that reviewed state; fixes and any follow-up verification are recorded separately.

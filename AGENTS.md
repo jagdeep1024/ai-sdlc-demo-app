@@ -50,9 +50,9 @@ Failed attempts return a clear reason and leave ALL invoice fields and repositor
 Session identity/role are authoritative; never accept them from an approval request body.
 Keep rules in Domain, transport/auth in Api, presentation in wwwroot.
 Implement single-approver limits with tests in one stage and commit, then dual approval in a separate prompt/stage/commit.
-Do not implement stage two until Jagdeep reviews stage one.
+Preserve the distinct single-approval and dual-approval stages in history; prior stage authorizations are recorded in the interaction log. Final PR-review acceptance must be an actual human response.
 Main agent coordinates; implementation agent may delegate an independent read-only test review.
 Review every generated test for a real failing scenario, not just execution coverage.
 Review findings require stable IDs, evidence, and fixed/dismissed/deferred verdicts with reasons.
 Record actual AI interactions and distinguish human instructions from delegated prompts; never fabricate human decisions.
-The workshop-specific review prompt was unavailable; Jagdeep authorized the standard fallback recorded in documentation/REVIEW-PROMPT.md. The final video is pending.
+The workshop-specific review prompt was unavailable; Jagdeep authorized the standard fallback recorded in documentation/REVIEW-PROMPT.md. Video recording/export and Drive link/access verification are complete; the direct video is linked in ASSIGNMENT.md. Jagdeep requested changes before final PR acceptance; obtain the specific changes before implementing dependent work.

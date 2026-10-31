@@ -783,3 +783,91 @@ Retrospective summaries are labelled; hook configuration alone does not prove au
   "Verification": "Independent reviewer reran82 .NET cases, one Chromium test, five logger checks, TypeScript, OpenSpec strict and diff-check. Audited both raw mutation reports and source/config/test consistency. Main verified authored local links, strict specification validation, unchanged17 production C# hashes, hosted run39728576732 and successful PR-triggered checks."
 }
 ```
+
+## video-completion-human-report-20261031
+
+- Time: 2026-10-31T17:06:41.581472+00:00
+- Source: human-message
+- Speaker: Jagdeep
+- Event: instruction
+
+```json
+{
+  "prompt": "I have made the video, check whats left now, check and modify all documentations if we have updated it",
+  "scope": "Audit submission status and update documentation; do not infer PR acceptance from recording completion."
+}
+```
+
+## video-export-verification-20261031
+
+- Time: 2026-10-31T17:06:41.584933+00:00
+- Source: explicit-orchestration
+- Speaker: main-agent
+- Event: verification
+
+```json
+{
+  "audio": "AAC",
+  "decode": "Full video/audio decode passed with no reported errors.",
+  "delivery": "No evaluator URL supplied yet; matching owned-video search in connected Drive returned no result.",
+  "duration_seconds": 481.614467,
+  "file_name": "Assignment_video.mp4",
+  "review_acceptance": "Explicit acceptance still unrecorded; asked user while updating independent documentation.",
+  "sha256": "2cb4d057295d34dac3b90c393bf141dbbc6102f2af4d9c0fac9730bad6534104",
+  "size_bytes": 207593597,
+  "video": "H.264 1920x1080",
+  "visual_scope": "Sampled frames across the recording; Playwright command around280s and1 passed around290s. Not a full spoken transcript."
+}
+```
+
+## video-link-and-review-response-20261031
+
+- Time: 2026-10-31T17:09:30.312523+00:00
+- Source: human-message
+- Speaker: Jagdeep
+- Event: response
+
+```json
+{
+  "provided_video_folder": "https://drive.google.com/drive/folders/1aI_462R_Zr9NqI5wgn23b_6wJkarVh9N?usp=sharing",
+  "review_checkpoint_answer": "I want changes before accepting",
+  "status": "Specific review changes asked for separately; no acceptance or implementation of unspecified changes assumed."
+}
+```
+
+## uploaded-video-access-verification-20261031
+
+- Time: 2026-10-31T17:09:30.314773+00:00
+- Source: explicit-orchestration
+- Speaker: main-agent
+- Event: verification
+
+```json
+{
+  "file_id": "1MAjWICXkxnMMIZDsPQJfYFAlomFy8lF9",
+  "file_name": "Assignment_video.mp4",
+  "file_url": "https://drive.google.com/file/d/1MAjWICXkxnMMIZDsPQJfYFAlomFy8lF9/view?usp=drivesdk",
+  "identity_scope": "Uploaded metadata filename/size match inspected export. Remote checksum not returned by connector; local SHA/duration checks remain identified as local.",
+  "mime_type": "video/mp4",
+  "review_status": "Changes requested before acceptance; waiting for specific instructions.",
+  "sharing": "File and parent folder metadata both show anyone-reader with link-only discovery. No permission changes made.",
+  "size_bytes": 207593597
+}
+```
+
+## documentation-audit-video-delivery-20261031
+
+- Time: 2026-10-31T17:10:52.765266+00:00
+- Source: explicit-orchestration
+- Speaker: main-agent
+- Event: report
+
+```json
+{
+  "Changes": "Linked the actual uploaded video in README/ASSIGNMENT and recorded export/access verification; refreshed AGENTS/current review/test/evidence status and split recording from hand-in tasks. Historical review payloads preserved.",
+  "Findings": "Video delivery is complete. Jagdeep explicitly requested changes before accepting; specific changes are still being clarified, so no final acceptance/merge/submission is claimed.",
+  "Objective": "Audit remaining hand-in items after the recorded demo and update current documentation without rewriting historical reports.",
+  "Pending decisions": "Specific requested review changes, subsequent actual acceptance, and external hand-in. Keep PR open as draft.",
+  "Verification": "MP4 local export8:01.6,1080pH264/AAC,full decode passed; sampled recorded Playwright reaches1 passed. Drive file/folder anyone-reader permission confirmed and filename/size match. OpenSpec strict and5 logger tests passed; authored local Markdown links and unchanged17 C# hashes verified. Existing PR checks at303c8ea remain green."
+}
+```
